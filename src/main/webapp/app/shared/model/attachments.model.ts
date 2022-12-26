@@ -7,7 +7,7 @@ export interface IAttachments {
   name?: string | null;
   attachContentType?: string | null;
   attach?: string | null;
-  attachmentNotes?: IAttachmentNotes | null;
+  attachmentNotes?: IAttachmentNotes[] | null;
   invoices?: IInvoice[] | null;
   purchaseOrders?: IPurchaseOrder[] | null;
 }
@@ -18,7 +18,7 @@ export class Attachments implements IAttachments {
     public name?: string | null,
     public attachContentType?: string | null,
     public attach?: string | null,
-    public attachmentNotes?: IAttachmentNotes | null,
+    public attachmentNotes?: IAttachmentNotes[] | null,
     public invoices?: IInvoice[] | null,
     public purchaseOrders?: IPurchaseOrder[] | null
   ) {}

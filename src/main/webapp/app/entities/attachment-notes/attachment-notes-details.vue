@@ -45,6 +45,15 @@
             </div>
           </dd>
           <dt>
+            <span v-text="$t('workshopApp.attachmentNotes.attachments')">Attachments</span>
+          </dt>
+          <dd>
+            <span v-for="(attachments, i) in attachmentNotes.attachments" :key="attachments.id"
+              >{{ i > 0 ? ', ' : '' }}
+              <router-link :to="{ name: 'AttachmentsView', params: { attachmentsId: attachments.id } }">{{ attachments.name }}</router-link>
+            </span>
+          </dd>
+          <dt>
             <span v-text="$t('workshopApp.attachmentNotes.workOrders')">Work Orders</span>
           </dt>
           <dd>

@@ -37,6 +37,20 @@
         <dropDefaultValue tableName="attachment_notes" columnName="action_date" columnDataType="${datetimeType}"/>
     </changeSet>
 
+    <changeSet id="20221226180600-1-relations" author="jhipster">
+
+        <createTable tableName="rel_attachment_notes__attachments">
+            <column name="attachments_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="attachment_notes_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="attachment_notes_id, attachments_id" tableName="rel_attachment_notes__attachments"/>
+    </changeSet>
+
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
 
     <!--

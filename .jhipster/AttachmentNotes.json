@@ -39,10 +39,12 @@
       "relationshipType": "one-to-one"
     },
     {
+      "otherEntityField": "name",
       "otherEntityName": "attachments",
       "otherEntityRelationshipName": "attachmentNotes",
+      "ownerSide": true,
       "relationshipName": "attachments",
-      "relationshipType": "one-to-many"
+      "relationshipType": "many-to-many"
     },
     {
       "otherEntityName": "workOrders",
