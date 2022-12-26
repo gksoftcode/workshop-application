@@ -1,0 +1,11 @@
+id;invoice_date;issue_date;payment_terms;discount;notes;discount_type;deposit_amount;is_deposit_paied;deposit_method;deposit_pay_ref;is_already_paied;payment_method;payment_ref;amount;last_amount;shipping_fees
+1;2022-12-26T02:26:56;2022-12-26T04:21:00;85235;13062;25156;PERCENTAGE;86430;false;Cash;Center Infrastructure;false;Cheque;Grove haptic 1080p;58419;76728;83567
+2;2022-12-26T15:35:02;2022-12-25T20:50:37;28730;67683;92692;PERCENTAGE;99973;true;BankTransfer;Soft Central;false;Card;Incredible Bhutanese;71595;73808;24198
+3;2022-12-25T21:06:29;2022-12-25T23:04:32;76782;97683;25244;PERCENTAGE;15036;false;Cheque;Handcrafted back-end;false;Cheque;transmitting EXE Director;32340;68672;38509
+4;2022-12-26T01:18:30;2022-12-26T05:45:22;92472;22551;31718;PERCENTAGE;90797;true;Cash;HTTP;false;Cash;Awesome;93655;23436;32278
+5;2022-12-25T20:54:18;2022-12-26T15:24:01;44341;34241;89852;PERCENTAGE;32458;false;Cheque;matrix SDD;false;Card;Groves Chips transmitting;53788;39958;66616
+6;2022-12-26T13:24:59;2022-12-25T23:02:53;1051;18331;89523;AMOUNT;81535;false;Cash;Customer;true;Cash;Auto Toys;96191;5687;62193
+7;2022-12-26T14:48:21;2022-12-26T05:15:58;35309;24856;40069;AMOUNT;42371;true;BankTransfer;pixel;false;Card;Oklahoma Home Barbados;88099;20149;51245
+8;2022-12-26T05:50:38;2022-12-25T21:24:58;13613;58055;76516;AMOUNT;76107;false;Card;Guinea-Bissau Home;false;BankTransfer;Generic User-centric program;5450;84029;41534
+9;2022-12-25T22:20:43;2022-12-26T08:17:12;22236;41834;308;AMOUNT;65476;true;Cash;COM Response;false;Cash;paradigms web-readiness;96704;6376;47840
+10;2022-12-26T05:09:48;2022-12-26T13:23:07;35164;23716;26067;AMOUNT;93817;false;Card;Florida;true;Cheque;Money Tuna;85375;4374;3293

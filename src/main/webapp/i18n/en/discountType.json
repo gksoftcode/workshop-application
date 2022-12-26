@@ -1,0 +1,9 @@
+{
+  "workshopApp": {
+    "DiscountType": {
+      "null": "",
+      "PERCENTAGE": "PERCENTAGE",
+      "AMOUNT": "AMOUNT"
+    }
+  }
+}

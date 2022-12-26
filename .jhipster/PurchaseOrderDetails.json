@@ -1,0 +1,59 @@
+{
+  "applications": "*",
+  "changelogDate": "20221226180609",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "purchase_order_details",
+  "fields": [
+    {
+      "fieldName": "itemNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "itemDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "itemPrice",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "itemQty",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "discountType",
+      "fieldType": "DiscountType",
+      "fieldValues": "PERCENTAGE,AMOUNT"
+    },
+    {
+      "fieldName": "discount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "totalAmount",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PurchaseOrderDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "tax",
+      "ownerSide": true,
+      "relationshipName": "tax",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "purchaseOrder",
+      "otherEntityRelationshipName": "invoiceDetails",
+      "relationshipName": "purchaseOrder",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

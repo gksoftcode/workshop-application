@@ -1,0 +1,255 @@
+entity Country {
+	name String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Location {
+name String,
+	streetAddress String,
+ 	city String,
+	stateProvince String,
+    lang String,
+    lat String
+}
+
+entity Department {
+	departmentName String required
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Task {
+	title String,
+	description String
+}
+
+/**
+ * The Employee entity.
+ */
+entity Employee {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+	hireDate Instant,
+	salary Long,
+	commissionPct Long
+}
+
+entity Job {
+	jobTitle String,
+	minSalary Long,
+	maxSalary Long
+}
+
+entity JobHistory {
+	startDate Instant,
+	endDate Instant,
+}
+
+
+
+/**
+ * The Employee entity.
+ */
+entity Client {
+ 
+	fullName String,
+	mobileNo String,
+	email String,
+	phoneNumber String,
+}
+entity Appintment {
+    appDate Instant,
+	notes String,
+ }
+ 
+ entity ItemModels {
+ 	name String,
+ }
+  entity ItemBrand {
+ 	name String,
+ }
+ entity Action{
+name String,
+ }
+  entity Status {
+ 	name String,
+ }
+entity WorkOrders {
+	title String,
+	description String,
+ 	startDate Instant,
+    endDate Instant,
+	budget Long,
+		itemSerial String,
+        isWaranty Boolean,
+        notes String,
+        
+}
+entity AttachmentNotes {
+isShared Boolean,
+actionDate Instant,
+note String
+ }
+   entity Attachments {
+ 	name String,
+    attach Blob
+ }
+ entity Supplier{
+ 	name String,
+    email String,
+    phone String,
+    mobilePone String
+ }
+ entity ServiceCategory{
+ 	categoryName String
+ }
+ entity Tax{
+ name String,
+ taxValue Long,
+ }
+ entity Services {
+ name String,
+ description String,
+ cost Long,
+ price Long,
+ discount Long,
+ notes Long,
+ discountType DiscountType
+ }
+ enum DiscountType{
+    PERCENTAGE,
+    AMOUNT
+ }
+  enum PaymentMethod{
+    Cash,
+    BankTransfer,
+    Card,
+    Cheque
+ }
+ entity Invoice {
+ invoiceDate Instant,
+ issueDate Instant,
+ paymentTerms Long,
+  discount Long,
+ notes Long,
+ discountType DiscountType,
+ depositAmount Long,
+ isDepositPaied Boolean,
+ depositMethod PaymentMethod,
+ depositPayRef String,
+ isAlreadyPaied Boolean,
+paymentMethod PaymentMethod,
+paymentRef String,
+amount Long,
+lastAmount Long,
+shippingFees Long
+ }
+ entity InvoiceDetails {
+ itemNo Long,
+   itemDesc String,
+   itemPrice Long,
+   itemQty Long,
+    discountType DiscountType,
+      discount Long,
+       totalAmount Long
+ }
+   
+ entity PurchaseOrder {
+ invoiceDate Instant,
+ issueDate Instant,
+ paymentTerms Long,
+  discount Long,
+ notes Long,
+ discountType DiscountType,
+ depositAmount Long,
+ isDepositPaied Boolean,
+ depositMethod PaymentMethod,
+ depositPayRef String,
+ isAlreadyPaied Boolean,
+paymentMethod PaymentMethod,
+paymentRef String,
+amount Long,
+lastAmount Long,
+shippingFees Long
+ }
+ entity PurchaseOrderDetails {
+ itemNo Long,
+   itemDesc String,
+   itemPrice Long,
+   itemQty Long,
+    discountType DiscountType,
+      discount Long,
+       totalAmount Long
+ }
+ 
+relationship OneToOne {
+     WorkOrders{status(name)} to Status,
+     WorkOrders{client(fullName)} to Client,
+   WorkOrders{itemModels(name)} to ItemModels,
+    WorkOrders{itemBrand(name)} to ItemBrand,
+    Location{country} to Country,
+    AttachmentNotes{status(name)} to Status,
+   AttachmentNotes{action(name)} to Action,
+    Services{tax(name)} to Tax,
+    PurchaseOrderDetails{tax(name)} to Tax,
+     Invoice{client(fullName)} to Client,
+        PurchaseOrder{supplier(fullName)} to Supplier,
+} 
+
+relationship ManyToMany {
+	Job{task(title)} to Task{job}
+   Client{location(name)} to Location{client},
+     Supplier{location(name)} to Location{supplier},
+ Invoice{attachments(name)} to Attachments{invoice},
+  PurchaseOrder{attachments(name)} to Attachments{purchaseOrder},
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Employee to Job{employee}, 
+	Department to Employee{department},
+  Client to Appintment{client},
+  WorkOrders{assignedStaffs} to Employee,
+    WorkOrders{appintments} to Appintment{workOrders},
+    WorkOrders{attachmentNotes} to AttachmentNotes,
+     AttachmentNotes{attachments} to Attachments,
+     WorkOrders{invoice} to Invoice,
+         WorkOrders{purchaseOrder} to PurchaseOrder,
+     Invoice{invoiceDetails} to InvoiceDetails,
+         Invoice{services} to Services,
+         PurchaseOrder{invoiceDetails} to PurchaseOrderDetails,
+         PurchaseOrder{services} to Services,
+}
+
+relationship ManyToOne {
+	Employee{manager} to Employee,
+     	Department{parentDepartment} to Department,
+        Services{serviceCategory} to ServiceCategory
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	JobHistory{job} to Job,
+	JobHistory{department} to Department,
+	JobHistory{employee} to Employee
+}
+
+// Set pagination options
+paginate all with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

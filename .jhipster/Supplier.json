@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20221226180602",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "supplier",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobilePone",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Supplier",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "supplier",
+      "ownerSide": true,
+      "relationshipName": "location",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

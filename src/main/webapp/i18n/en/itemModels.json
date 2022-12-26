@@ -1,0 +1,24 @@
+{
+  "workshopApp": {
+    "itemModels": {
+      "home": {
+        "title": "Item Models",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Item Models",
+        "createOrEditLabel": "Create or edit a Item Models",
+        "notFound": "No Item Models found"
+      },
+      "created": "A new Item Models is created with identifier {{ param }}",
+      "updated": "A Item Models is updated with identifier {{ param }}",
+      "deleted": "A Item Models is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Item Models {{ id }}?"
+      },
+      "detail": {
+        "title": "Item Models"
+      },
+      "id": "ID",
+      "name": "Name"
+    }
+  }
+}

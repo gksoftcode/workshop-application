@@ -1,0 +1,117 @@
+{
+  "applications": "*",
+  "changelogDate": "20221226180606",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "invoice",
+  "fields": [
+    {
+      "fieldName": "invoiceDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "issueDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "paymentTerms",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "discount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "discountType",
+      "fieldType": "DiscountType",
+      "fieldValues": "PERCENTAGE,AMOUNT"
+    },
+    {
+      "fieldName": "depositAmount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "isDepositPaied",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "depositMethod",
+      "fieldType": "PaymentMethod",
+      "fieldValues": "Cash,BankTransfer,Card,Cheque"
+    },
+    {
+      "fieldName": "depositPayRef",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isAlreadyPaied",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "paymentMethod",
+      "fieldType": "PaymentMethod",
+      "fieldValues": "Cash,BankTransfer,Card,Cheque"
+    },
+    {
+      "fieldName": "paymentRef",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "lastAmount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "shippingFees",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Invoice",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "fullName",
+      "otherEntityName": "client",
+      "ownerSide": true,
+      "relationshipName": "client",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "invoiceDetails",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "invoiceDetails",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "services",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "services",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "attachments",
+      "otherEntityRelationshipName": "invoice",
+      "ownerSide": true,
+      "relationshipName": "attachments",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "workOrders",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "workOrders",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

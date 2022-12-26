@@ -1,0 +1,11 @@
+id;invoice_date;issue_date;payment_terms;discount;notes;discount_type;deposit_amount;is_deposit_paied;deposit_method;deposit_pay_ref;is_already_paied;payment_method;payment_ref;amount;last_amount;shipping_fees
+1;2022-12-26T13:14:13;2022-12-26T02:10:48;90322;51505;92856;AMOUNT;75775;true;Cash;reciprocal;false;BankTransfer;Borders Security Baby;33868;83148;98751
+2;2022-12-25T20:12:34;2022-12-26T17:33:36;38846;73464;13215;AMOUNT;59130;true;BankTransfer;state next-generation Operations;true;Cash;HTTP digital;43604;63852;9414
+3;2022-12-25T23:57:05;2022-12-26T17:55:20;40893;89206;37724;PERCENTAGE;94408;false;Cheque;Borders;true;Card;SQL;84789;2887;87815
+4;2022-12-25T21:48:33;2022-12-26T09:10:26;29148;12735;50464;AMOUNT;12235;false;BankTransfer;Dakota Berkshire Pennsylvania;false;BankTransfer;Towels SDD Secured;216;97495;71187
+5;2022-12-26T10:12:41;2022-12-26T07:27:34;95685;16931;91689;AMOUNT;43940;true;Cash;mobile SAS;false;Cheque;Functionality navigating;82382;49045;1672
+6;2022-12-26T01:42:20;2022-12-26T12:09:27;37355;92132;77130;PERCENTAGE;58208;false;Cheque;bricks-and-clicks;false;Cash;Multi-channelled Tasty;6621;54972;77343
+7;2022-12-25T23:08:08;2022-12-26T07:22:48;20765;75346;96049;AMOUNT;7077;false;Card;National;true;Card;Iranian Chief;48566;84416;36958
+8;2022-12-25T22:13:00;2022-12-26T15:40:58;73360;18513;49216;PERCENTAGE;61405;true;Cash;Gloves invoice;true;Cash;Shirt Internal Assistant;64575;27764;23852
+9;2022-12-26T09:19:23;2022-12-26T12:21:41;60022;42426;85852;PERCENTAGE;76799;false;Cash;Darussalam ivory compressing;true;Cash;Front-line invoice Delaware;96798;36794;7272
+10;2022-12-25T21:07:30;2022-12-26T01:37:00;3206;17926;92836;PERCENTAGE;66266;true;Cash;input background;true;Cash;array executive Money;71951;45161;63064

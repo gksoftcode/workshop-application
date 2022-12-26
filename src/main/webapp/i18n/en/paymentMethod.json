@@ -1,0 +1,11 @@
+{
+  "workshopApp": {
+    "PaymentMethod": {
+      "null": "",
+      "Cash": "Cash",
+      "BankTransfer": "BankTransfer",
+      "Card": "Card",
+      "Cheque": "Cheque"
+    }
+  }
+}

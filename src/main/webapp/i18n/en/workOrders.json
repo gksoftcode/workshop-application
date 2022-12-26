@@ -1,0 +1,40 @@
+{
+  "workshopApp": {
+    "workOrders": {
+      "home": {
+        "title": "Work Orders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Work Orders",
+        "createOrEditLabel": "Create or edit a Work Orders",
+        "notFound": "No Work Orders found"
+      },
+      "created": "A new Work Orders is created with identifier {{ param }}",
+      "updated": "A Work Orders is updated with identifier {{ param }}",
+      "deleted": "A Work Orders is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Work Orders {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Orders"
+      },
+      "id": "ID",
+      "title": "Title",
+      "description": "Description",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "budget": "Budget",
+      "itemSerial": "Item Serial",
+      "isWaranty": "Is Waranty",
+      "notes": "Notes",
+      "status": "Status",
+      "client": "Client",
+      "itemModels": "Item Models",
+      "itemBrand": "Item Brand",
+      "assignedStaffs": "Assigned Staffs",
+      "appintments": "Appintments",
+      "attachmentNotes": "Attachment Notes",
+      "invoice": "Invoice",
+      "purchaseOrder": "Purchase Order"
+    }
+  }
+}
