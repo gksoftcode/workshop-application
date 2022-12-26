@@ -108,7 +108,7 @@
           <dd>
             <div v-if="purchaseOrder.supplier">
               <router-link :to="{ name: 'SupplierView', params: { supplierId: purchaseOrder.supplier.id } }">{{
-                purchaseOrder.supplier.fullName
+                purchaseOrder.supplier.name
               }}</router-link>
             </div>
           </dd>

@@ -80,7 +80,7 @@
   "readOnly": false,
   "relationships": [
     {
-      "otherEntityField": "fullName",
+      "otherEntityField": "name",
       "otherEntityName": "supplier",
       "ownerSide": true,
       "relationshipName": "supplier",

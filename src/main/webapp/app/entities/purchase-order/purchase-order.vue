@@ -96,9 +96,9 @@
               <span v-text="$t('workshopApp.purchaseOrder.shippingFees')">Shipping Fees</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'shippingFees'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('supplier.fullName')">
+            <th scope="row" v-on:click="changeOrder('supplier.name')">
               <span v-text="$t('workshopApp.purchaseOrder.supplier')">Supplier</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'supplier.fullName'"></jhi-sort-indicator>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'supplier.name'"></jhi-sort-indicator>
             </th>
             <th scope="row" v-on:click="changeOrder('workOrders.id')">
               <span v-text="$t('workshopApp.purchaseOrder.workOrders')">Work Orders</span>
@@ -133,7 +133,7 @@
             <td>
               <div v-if="purchaseOrder.supplier">
                 <router-link :to="{ name: 'SupplierView', params: { supplierId: purchaseOrder.supplier.id } }">{{
-                  purchaseOrder.supplier.fullName
+                  purchaseOrder.supplier.name
                 }}</router-link>
               </div>
             </td>

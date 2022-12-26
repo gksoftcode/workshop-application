@@ -201,11 +201,12 @@ relationship OneToOne {
     Services{tax(name)} to Tax,
     PurchaseOrderDetails{tax(name)} to Tax,
      Invoice{client(fullName)} to Client,
-        PurchaseOrder{supplier(fullName)} to Supplier,
+        PurchaseOrder{supplier(name)} to Supplier,
 } 
 
 relationship ManyToMany {
-	Job{task(title)} to Task{job}
+	Job{task(title)} to Task{job},
+     AttachmentNotes{attachments(name)} to Attachments{attachmentNotes},
    Client{location(name)} to Location{client},
      Supplier{location(name)} to Location{supplier},
  Invoice{attachments(name)} to Attachments{invoice},
@@ -220,7 +221,7 @@ relationship OneToMany {
   WorkOrders{assignedStaffs} to Employee,
     WorkOrders{appintments} to Appintment{workOrders},
     WorkOrders{attachmentNotes} to AttachmentNotes,
-     AttachmentNotes{attachments} to Attachments,
+    
      WorkOrders{invoice} to Invoice,
          WorkOrders{purchaseOrder} to PurchaseOrder,
      Invoice{invoiceDetails} to InvoiceDetails,

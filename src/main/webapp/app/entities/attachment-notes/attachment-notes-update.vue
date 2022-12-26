@@ -88,6 +88,26 @@
             </select>
           </div>
           <div class="form-group">
+            <label v-text="$t('workshopApp.attachmentNotes.attachments')" for="attachment-notes-attachments">Attachments</label>
+            <select
+              class="form-control"
+              id="attachment-notes-attachments"
+              data-cy="attachments"
+              multiple
+              name="attachments"
+              v-if="attachmentNotes.attachments !== undefined"
+              v-model="attachmentNotes.attachments"
+            >
+              <option
+                v-bind:value="getSelected(attachmentNotes.attachments, attachmentsOption)"
+                v-for="attachmentsOption in attachments"
+                :key="attachmentsOption.id"
+              >
+                {{ attachmentsOption.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
             <label class="form-control-label" v-text="$t('workshopApp.attachmentNotes.workOrders')" for="attachment-notes-workOrders"
               >Work Orders</label
             >

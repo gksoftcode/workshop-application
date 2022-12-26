@@ -11,19 +11,22 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Spring Data JPA repository for the AttachmentNotes entity.
+ *
+ * When extending this class, extend AttachmentNotesRepositoryWithBagRelationships too.
+ * For more information refer to https://github.com/jhipster/generator-jhipster/issues/17990.
  */
 @Repository
-public interface AttachmentNotesRepository extends JpaRepository<AttachmentNotes, Long> {
+public interface AttachmentNotesRepository extends AttachmentNotesRepositoryWithBagRelationships, JpaRepository<AttachmentNotes, Long> {
     default Optional<AttachmentNotes> findOneWithEagerRelationships(Long id) {
-        return this.findOneWithToOneRelationships(id);
+        return this.fetchBagRelationships(this.findOneWithToOneRelationships(id));
     }
 
     default List<AttachmentNotes> findAllWithEagerRelationships() {
-        return this.findAllWithToOneRelationships();
+        return this.fetchBagRelationships(this.findAllWithToOneRelationships());
     }
 
     default Page<AttachmentNotes> findAllWithEagerRelationships(Pageable pageable) {
-        return this.findAllWithToOneRelationships(pageable);
+        return this.fetchBagRelationships(this.findAllWithToOneRelationships(pageable));
     }
 
     @Query(

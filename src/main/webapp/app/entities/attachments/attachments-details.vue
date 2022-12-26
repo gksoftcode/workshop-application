@@ -21,16 +21,6 @@
               {{ attachments.attachContentType }}, {{ byteSize(attachments.attach) }}
             </div>
           </dd>
-          <dt>
-            <span v-text="$t('workshopApp.attachments.attachmentNotes')">Attachment Notes</span>
-          </dt>
-          <dd>
-            <div v-if="attachments.attachmentNotes">
-              <router-link :to="{ name: 'AttachmentNotesView', params: { attachmentNotesId: attachments.attachmentNotes.id } }">{{
-                attachments.attachmentNotes.id
-              }}</router-link>
-            </div>
-          </dd>
         </dl>
         <button type="submit" v-on:click.prevent="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
           <font-awesome-icon icon="arrow-left"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.back')"> Back</span>
