@@ -34,9 +34,10 @@ public class Attachments implements Serializable {
     @Column(name = "attach_content_type")
     private String attachContentType;
 
-    @ManyToOne
+    @ManyToMany(mappedBy = "attachments")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "status", "action", "attachments", "workOrders" }, allowSetters = true)
-    private AttachmentNotes attachmentNotes;
+    private Set<AttachmentNotes> attachmentNotes = new HashSet<>();
 
     @ManyToMany(mappedBy = "attachments")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -102,16 +103,34 @@ public class Attachments implements Serializable {
         this.attachContentType = attachContentType;
     }
 
-    public AttachmentNotes getAttachmentNotes() {
+    public Set<AttachmentNotes> getAttachmentNotes() {
         return this.attachmentNotes;
     }
 
-    public void setAttachmentNotes(AttachmentNotes attachmentNotes) {
+    public void setAttachmentNotes(Set<AttachmentNotes> attachmentNotes) {
+        if (this.attachmentNotes != null) {
+            this.attachmentNotes.forEach(i -> i.removeAttachments(this));
+        }
+        if (attachmentNotes != null) {
+            attachmentNotes.forEach(i -> i.addAttachments(this));
+        }
         this.attachmentNotes = attachmentNotes;
     }
 
-    public Attachments attachmentNotes(AttachmentNotes attachmentNotes) {
+    public Attachments attachmentNotes(Set<AttachmentNotes> attachmentNotes) {
         this.setAttachmentNotes(attachmentNotes);
+        return this;
+    }
+
+    public Attachments addAttachmentNotes(AttachmentNotes attachmentNotes) {
+        this.attachmentNotes.add(attachmentNotes);
+        attachmentNotes.getAttachments().add(this);
+        return this;
+    }
+
+    public Attachments removeAttachmentNotes(AttachmentNotes attachmentNotes) {
+        this.attachmentNotes.remove(attachmentNotes);
+        attachmentNotes.getAttachments().remove(this);
         return this;
     }
 

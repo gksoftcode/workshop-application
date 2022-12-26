@@ -40,10 +40,6 @@
               <span v-text="$t('workshopApp.attachments.attach')">Attach</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'attach'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('attachmentNotes.id')">
-              <span v-text="$t('workshopApp.attachments.attachmentNotes')">Attachment Notes</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'attachmentNotes.id'"></jhi-sort-indicator>
-            </th>
             <th scope="row"></th>
           </tr>
         </thead>
@@ -61,13 +57,6 @@
                 >open</a
               >
               <span v-if="attachments.attach">{{ attachments.attachContentType }}, {{ byteSize(attachments.attach) }}</span>
-            </td>
-            <td>
-              <div v-if="attachments.attachmentNotes">
-                <router-link :to="{ name: 'AttachmentNotesView', params: { attachmentNotesId: attachments.attachmentNotes.id } }">{{
-                  attachments.attachmentNotes.id
-                }}</router-link>
-              </div>
             </td>
             <td class="text-right">
               <div class="btn-group">

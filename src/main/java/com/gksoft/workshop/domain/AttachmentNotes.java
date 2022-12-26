@@ -42,7 +42,12 @@ public class AttachmentNotes implements Serializable {
     @JoinColumn(unique = true)
     private Action action;
 
-    @OneToMany(mappedBy = "attachmentNotes")
+    @ManyToMany
+    @JoinTable(
+        name = "rel_attachment_notes__attachments",
+        joinColumns = @JoinColumn(name = "attachment_notes_id"),
+        inverseJoinColumns = @JoinColumn(name = "attachments_id")
+    )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "attachmentNotes", "invoices", "purchaseOrders" }, allowSetters = true)
     private Set<Attachments> attachments = new HashSet<>();
@@ -141,12 +146,6 @@ public class AttachmentNotes implements Serializable {
     }
 
     public void setAttachments(Set<Attachments> attachments) {
-        if (this.attachments != null) {
-            this.attachments.forEach(i -> i.setAttachmentNotes(null));
-        }
-        if (attachments != null) {
-            attachments.forEach(i -> i.setAttachmentNotes(this));
-        }
         this.attachments = attachments;
     }
 
@@ -157,13 +156,13 @@ public class AttachmentNotes implements Serializable {
 
     public AttachmentNotes addAttachments(Attachments attachments) {
         this.attachments.add(attachments);
-        attachments.setAttachmentNotes(this);
+        attachments.getAttachmentNotes().add(this);
         return this;
     }
 
     public AttachmentNotes removeAttachments(Attachments attachments) {
         this.attachments.remove(attachments);
-        attachments.setAttachmentNotes(null);
+        attachments.getAttachmentNotes().remove(this);
         return this;
     }
 

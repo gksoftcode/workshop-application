@@ -24,8 +24,9 @@
     {
       "otherEntityName": "attachmentNotes",
       "otherEntityRelationshipName": "attachments",
+      "ownerSide": false,
       "relationshipName": "attachmentNotes",
-      "relationshipType": "many-to-one"
+      "relationshipType": "many-to-many"
     },
     {
       "otherEntityName": "invoice",

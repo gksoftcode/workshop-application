@@ -95,6 +95,7 @@ public class CacheConfiguration {
             createCache(cm, com.gksoft.workshop.domain.PurchaseOrder.class.getName() + ".services");
             createCache(cm, com.gksoft.workshop.domain.PurchaseOrder.class.getName() + ".attachments");
             createCache(cm, com.gksoft.workshop.domain.PurchaseOrderDetails.class.getName());
+            createCache(cm, com.gksoft.workshop.domain.Attachments.class.getName() + ".attachmentNotes");
             // jhipster-needle-ehcache-add-entry
         };
     }
