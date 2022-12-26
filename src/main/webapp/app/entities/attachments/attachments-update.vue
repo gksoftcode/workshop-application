@@ -74,31 +74,6 @@
               v-model="attachments.attachContentType"
             />
           </div>
-          <div class="form-group">
-            <label class="form-control-label" v-text="$t('workshopApp.attachments.attachmentNotes')" for="attachments-attachmentNotes"
-              >Attachment Notes</label
-            >
-            <select
-              class="form-control"
-              id="attachments-attachmentNotes"
-              data-cy="attachmentNotes"
-              name="attachmentNotes"
-              v-model="attachments.attachmentNotes"
-            >
-              <option v-bind:value="null"></option>
-              <option
-                v-bind:value="
-                  attachments.attachmentNotes && attachmentNotesOption.id === attachments.attachmentNotes.id
-                    ? attachments.attachmentNotes
-                    : attachmentNotesOption
-                "
-                v-for="attachmentNotesOption in attachmentNotes"
-                :key="attachmentNotesOption.id"
-              >
-                {{ attachmentNotesOption.id }}
-              </option>
-            </select>
-          </div>
         </div>
         <div>
           <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" v-on:click="previousState()">

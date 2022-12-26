@@ -72,6 +72,7 @@ export default class AttachmentNotesUpdate extends Vue {
         this.currentLanguage = this.$store.getters.currentLanguage;
       }
     );
+    this.attachmentNotes.attachments = [];
   }
 
   public save(): void {
@@ -177,5 +178,12 @@ export default class AttachmentNotesUpdate extends Vue {
       .then(res => {
         this.workOrders = res.data;
       });
+  }
+
+  public getSelected(selectedVals, option): any {
+    if (selectedVals) {
+      return selectedVals.find(value => option.id === value.id) ?? option;
+    }
+    return option;
   }
 }

@@ -20,6 +20,18 @@
                                  referencedColumnNames="id"
                                  referencedTableName="action"/>
 
+        <addForeignKeyConstraint baseColumnNames="attachment_notes_id"
+                                 baseTableName="rel_attachment_notes__attachments"
+                                 constraintName="fk_rel_attachment_notes__attachments__attachment_notes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="attachment_notes"/>
+
+        <addForeignKeyConstraint baseColumnNames="attachments_id"
+                                 baseTableName="rel_attachment_notes__attachments"
+                                 constraintName="fk_rel_attachment_notes__attachments__attachments_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="attachments"/>
+
         <addForeignKeyConstraint baseColumnNames="work_orders_id"
                                  baseTableName="attachment_notes"
                                  constraintName="fk_attachment_notes__work_orders_id"

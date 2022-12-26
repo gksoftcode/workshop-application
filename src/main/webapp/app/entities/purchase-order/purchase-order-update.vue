@@ -277,7 +277,7 @@
                 v-for="supplierOption in suppliers"
                 :key="supplierOption.id"
               >
-                {{ supplierOption.fullName }}
+                {{ supplierOption.name }}
               </option>
             </select>
           </div>
