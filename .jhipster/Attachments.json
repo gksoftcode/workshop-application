@@ -1,0 +1,46 @@
+{
+  "applications": "*",
+  "changelogDate": "20221226180601",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "attachments",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "attach",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Attachments",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "attachmentNotes",
+      "otherEntityRelationshipName": "attachments",
+      "relationshipName": "attachmentNotes",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "attachments",
+      "ownerSide": false,
+      "relationshipName": "invoice",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "purchaseOrder",
+      "otherEntityRelationshipName": "attachments",
+      "ownerSide": false,
+      "relationshipName": "purchaseOrder",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

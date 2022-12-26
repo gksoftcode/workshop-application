@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20221226180600",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "attachment_notes",
+  "fields": [
+    {
+      "fieldName": "isShared",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "actionDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AttachmentNotes",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "status",
+      "ownerSide": true,
+      "relationshipName": "status",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "action",
+      "ownerSide": true,
+      "relationshipName": "action",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "attachments",
+      "otherEntityRelationshipName": "attachmentNotes",
+      "relationshipName": "attachments",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "workOrders",
+      "otherEntityRelationshipName": "attachmentNotes",
+      "relationshipName": "workOrders",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

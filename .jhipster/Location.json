@@ -1,0 +1,62 @@
+{
+  "applications": "*",
+  "changelogDate": "20221226180547",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "location",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "streetAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stateProvince",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lang",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lat",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "not an ignored comment",
+  "jpaMetamodelFiltering": false,
+  "name": "Location",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "country",
+      "ownerSide": true,
+      "relationshipName": "country",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "location",
+      "ownerSide": false,
+      "relationshipName": "client",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "supplier",
+      "otherEntityRelationshipName": "location",
+      "ownerSide": false,
+      "relationshipName": "supplier",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

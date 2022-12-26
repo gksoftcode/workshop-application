@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity WorkOrders.
+    -->
+    <changeSet id="20221226180559-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="work_orders"
+                                 constraintName="fk_work_orders__status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+        <addForeignKeyConstraint baseColumnNames="client_id"
+                                 baseTableName="work_orders"
+                                 constraintName="fk_work_orders__client_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="client"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_models_id"
+                                 baseTableName="work_orders"
+                                 constraintName="fk_work_orders__item_models_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_models"/>
+
+        <addForeignKeyConstraint baseColumnNames="item_brand_id"
+                                 baseTableName="work_orders"
+                                 constraintName="fk_work_orders__item_brand_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_brand"/>
+    </changeSet>
+</databaseChangeLog>

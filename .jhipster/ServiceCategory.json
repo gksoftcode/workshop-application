@@ -1,0 +1,20 @@
+{
+  "applications": "*",
+  "changelogDate": "20221226180603",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "service_category",
+  "fields": [
+    {
+      "fieldName": "categoryName",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ServiceCategory",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

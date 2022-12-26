@@ -1,0 +1,70 @@
+{
+  "applications": "*",
+  "changelogDate": "20221226180605",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "services",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cost",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "discount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "discountType",
+      "fieldType": "DiscountType",
+      "fieldValues": "PERCENTAGE,AMOUNT"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Services",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "tax",
+      "ownerSide": true,
+      "relationshipName": "tax",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "serviceCategory",
+      "relationshipName": "serviceCategory",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "services",
+      "relationshipName": "invoice",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "purchaseOrder",
+      "otherEntityRelationshipName": "services",
+      "relationshipName": "purchaseOrder",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

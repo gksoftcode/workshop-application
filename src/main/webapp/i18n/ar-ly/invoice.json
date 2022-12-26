@@ -1,0 +1,44 @@
+{
+  "workshopApp": {
+    "invoice": {
+      "home": {
+        "title": "Invoices",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Invoice",
+        "createOrEditLabel": "Create or edit a Invoice",
+        "notFound": "No Invoices found"
+      },
+      "created": "A new Invoice is created with identifier {{ param }}",
+      "updated": "A Invoice is updated with identifier {{ param }}",
+      "deleted": "A Invoice is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Invoice {{ id }}?"
+      },
+      "detail": {
+        "title": "Invoice"
+      },
+      "id": "ID",
+      "invoiceDate": "Invoice Date",
+      "issueDate": "Issue Date",
+      "paymentTerms": "Payment Terms",
+      "discount": "Discount",
+      "notes": "Notes",
+      "discountType": "Discount Type",
+      "depositAmount": "Deposit Amount",
+      "isDepositPaied": "Is Deposit Paied",
+      "depositMethod": "Deposit Method",
+      "depositPayRef": "Deposit Pay Ref",
+      "isAlreadyPaied": "Is Already Paied",
+      "paymentMethod": "Payment Method",
+      "paymentRef": "Payment Ref",
+      "amount": "Amount",
+      "lastAmount": "Last Amount",
+      "shippingFees": "Shipping Fees",
+      "client": "Client",
+      "invoiceDetails": "Invoice Details",
+      "services": "Services",
+      "attachments": "Attachments",
+      "workOrders": "Work Orders"
+    }
+  }
+}

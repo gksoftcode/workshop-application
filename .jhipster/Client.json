@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20221226180553",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "client",
+  "fields": [
+    {
+      "fieldName": "fullName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "The Employee entity.",
+  "jpaMetamodelFiltering": false,
+  "name": "Client",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "appintment",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "appintment",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "location",
+      "otherEntityRelationshipName": "client",
+      "ownerSide": true,
+      "relationshipName": "location",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

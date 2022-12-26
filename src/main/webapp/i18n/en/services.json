@@ -1,0 +1,34 @@
+{
+  "workshopApp": {
+    "services": {
+      "home": {
+        "title": "Services",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Services",
+        "createOrEditLabel": "Create or edit a Services",
+        "notFound": "No Services found"
+      },
+      "created": "A new Services is created with identifier {{ param }}",
+      "updated": "A Services is updated with identifier {{ param }}",
+      "deleted": "A Services is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Services {{ id }}?"
+      },
+      "detail": {
+        "title": "Services"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "cost": "Cost",
+      "price": "Price",
+      "discount": "Discount",
+      "notes": "Notes",
+      "discountType": "Discount Type",
+      "tax": "Tax",
+      "serviceCategory": "Service Category",
+      "invoice": "Invoice",
+      "purchaseOrder": "Purchase Order"
+    }
+  }
+}

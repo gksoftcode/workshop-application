@@ -1,0 +1,30 @@
+{
+  "workshopApp": {
+    "attachmentNotes": {
+      "home": {
+        "title": "Attachment Notes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Attachment Notes",
+        "createOrEditLabel": "Create or edit a Attachment Notes",
+        "notFound": "No Attachment Notes found"
+      },
+      "created": "A new Attachment Notes is created with identifier {{ param }}",
+      "updated": "A Attachment Notes is updated with identifier {{ param }}",
+      "deleted": "A Attachment Notes is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Attachment Notes {{ id }}?"
+      },
+      "detail": {
+        "title": "Attachment Notes"
+      },
+      "id": "ID",
+      "isShared": "Is Shared",
+      "actionDate": "Action Date",
+      "note": "Note",
+      "status": "Status",
+      "action": "Action",
+      "attachments": "Attachments",
+      "workOrders": "Work Orders"
+    }
+  }
+}

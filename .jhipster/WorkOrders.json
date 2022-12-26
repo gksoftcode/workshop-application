@@ -1,0 +1,107 @@
+{
+  "applications": "*",
+  "changelogDate": "20221226180559",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "work_orders",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "budget",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "itemSerial",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isWaranty",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "WorkOrders",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "status",
+      "ownerSide": true,
+      "relationshipName": "status",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "fullName",
+      "otherEntityName": "client",
+      "ownerSide": true,
+      "relationshipName": "client",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "itemModels",
+      "ownerSide": true,
+      "relationshipName": "itemModels",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "itemBrand",
+      "ownerSide": true,
+      "relationshipName": "itemBrand",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "workOrders",
+      "relationshipName": "assignedStaffs",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "appintment",
+      "otherEntityRelationshipName": "workOrders",
+      "relationshipName": "appintments",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "attachmentNotes",
+      "otherEntityRelationshipName": "workOrders",
+      "relationshipName": "attachmentNotes",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "workOrders",
+      "relationshipName": "invoice",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "purchaseOrder",
+      "otherEntityRelationshipName": "workOrders",
+      "relationshipName": "purchaseOrder",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

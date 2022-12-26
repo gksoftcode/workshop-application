@@ -1,0 +1,44 @@
+{
+  "workshopApp": {
+    "purchaseOrder": {
+      "home": {
+        "title": "Purchase Orders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Purchase Order",
+        "createOrEditLabel": "Create or edit a Purchase Order",
+        "notFound": "No Purchase Orders found"
+      },
+      "created": "A new Purchase Order is created with identifier {{ param }}",
+      "updated": "A Purchase Order is updated with identifier {{ param }}",
+      "deleted": "A Purchase Order is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Purchase Order {{ id }}?"
+      },
+      "detail": {
+        "title": "Purchase Order"
+      },
+      "id": "ID",
+      "invoiceDate": "Invoice Date",
+      "issueDate": "Issue Date",
+      "paymentTerms": "Payment Terms",
+      "discount": "Discount",
+      "notes": "Notes",
+      "discountType": "Discount Type",
+      "depositAmount": "Deposit Amount",
+      "isDepositPaied": "Is Deposit Paied",
+      "depositMethod": "Deposit Method",
+      "depositPayRef": "Deposit Pay Ref",
+      "isAlreadyPaied": "Is Already Paied",
+      "paymentMethod": "Payment Method",
+      "paymentRef": "Payment Ref",
+      "amount": "Amount",
+      "lastAmount": "Last Amount",
+      "shippingFees": "Shipping Fees",
+      "supplier": "Supplier",
+      "invoiceDetails": "Invoice Details",
+      "services": "Services",
+      "attachments": "Attachments",
+      "workOrders": "Work Orders"
+    }
+  }
+}

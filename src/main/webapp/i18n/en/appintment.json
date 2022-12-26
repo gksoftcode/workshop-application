@@ -1,0 +1,27 @@
+{
+  "workshopApp": {
+    "appintment": {
+      "home": {
+        "title": "Appintments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Appintment",
+        "createOrEditLabel": "Create or edit a Appintment",
+        "notFound": "No Appintments found"
+      },
+      "created": "A new Appintment is created with identifier {{ param }}",
+      "updated": "A Appintment is updated with identifier {{ param }}",
+      "deleted": "A Appintment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Appintment {{ id }}?"
+      },
+      "detail": {
+        "title": "Appintment"
+      },
+      "id": "ID",
+      "appDate": "App Date",
+      "notes": "Notes",
+      "client": "Client",
+      "workOrders": "Work Orders"
+    }
+  }
+}
