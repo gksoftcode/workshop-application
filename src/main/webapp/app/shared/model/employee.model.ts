@@ -1,6 +1,7 @@
 import { IJob } from '@/shared/model/job.model';
 import { IDepartment } from '@/shared/model/department.model';
 import { IWorkOrders } from '@/shared/model/work-orders.model';
+import { IPaymentCredit } from '@/shared/model/payment-credit.model';
 
 export interface IEmployee {
   id?: number;
@@ -15,6 +16,7 @@ export interface IEmployee {
   manager?: IEmployee | null;
   department?: IDepartment | null;
   workOrders?: IWorkOrders | null;
+  paymentCredit?: IPaymentCredit | null;
 }
 
 export class Employee implements IEmployee {
@@ -30,6 +32,7 @@ export class Employee implements IEmployee {
     public jobs?: IJob[] | null,
     public manager?: IEmployee | null,
     public department?: IDepartment | null,
-    public workOrders?: IWorkOrders | null
+    public workOrders?: IWorkOrders | null,
+    public paymentCredit?: IPaymentCredit | null
   ) {}
 }

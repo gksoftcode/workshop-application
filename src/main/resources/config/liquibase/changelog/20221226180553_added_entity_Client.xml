@@ -10,7 +10,7 @@
         Added the entity Client.
     -->
     <changeSet id="20221226180553-1" author="jhipster">
-        <createTable tableName="client" remarks="The Employee entity.">
+        <createTable tableName="client">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

@@ -1,0 +1,11 @@
+{
+  "workshopApp": {
+    "PaymentStatus": {
+      "null": "",
+      "Complete": "Complete",
+      "Incomplete": "Incomplete",
+      "Pending": "Pending",
+      "Failed": "Failed"
+    }
+  }
+}

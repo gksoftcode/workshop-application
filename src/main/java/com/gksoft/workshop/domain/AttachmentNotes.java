@@ -49,13 +49,22 @@ public class AttachmentNotes implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "attachments_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "attachmentNotes", "invoices", "purchaseOrders" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "attachmentNotes", "invoices", "purchaseOrders", "paymentCredits" }, allowSetters = true)
     private Set<Attachments> attachments = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties(
         value = {
-            "status", "client", "itemModels", "itemBrand", "assignedStaffs", "appintments", "attachmentNotes", "invoices", "purchaseOrders",
+            "status",
+            "client",
+            "itemModels",
+            "itemBrand",
+            "assignedStaffs",
+            "appintments",
+            "attachmentNotes",
+            "invoices",
+            "purchaseOrders",
+            "paymentCredits",
         },
         allowSetters = true
     )

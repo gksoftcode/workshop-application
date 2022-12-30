@@ -73,13 +73,13 @@
           <div class="form-group">
             <label class="form-control-label" v-text="$t('workshopApp.invoice.notes')" for="invoice-notes">Notes</label>
             <input
-              type="number"
+              type="text"
               class="form-control"
               name="notes"
               id="invoice-notes"
               data-cy="notes"
               :class="{ valid: !$v.invoice.notes.$invalid, invalid: $v.invoice.notes.$invalid }"
-              v-model.number="$v.invoice.notes.$model"
+              v-model="$v.invoice.notes.$model"
             />
           </div>
           <div class="form-group">
@@ -201,6 +201,28 @@
                 v-bind:label="$t('workshopApp.PaymentMethod.' + paymentMethod)"
               >
                 {{ paymentMethod }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="$t('workshopApp.invoice.paymentStatus')" for="invoice-paymentStatus"
+              >Payment Status</label
+            >
+            <select
+              class="form-control"
+              name="paymentStatus"
+              :class="{ valid: !$v.invoice.paymentStatus.$invalid, invalid: $v.invoice.paymentStatus.$invalid }"
+              v-model="$v.invoice.paymentStatus.$model"
+              id="invoice-paymentStatus"
+              data-cy="paymentStatus"
+            >
+              <option
+                v-for="paymentStatus in paymentStatusValues"
+                :key="paymentStatus"
+                v-bind:value="paymentStatus"
+                v-bind:label="$t('workshopApp.PaymentStatus.' + paymentStatus)"
+              >
+                {{ paymentStatus }}
               </option>
             </select>
           </div>

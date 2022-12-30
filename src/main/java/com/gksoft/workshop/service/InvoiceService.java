@@ -95,6 +95,9 @@ public class InvoiceService {
                 if (invoice.getPaymentMethod() != null) {
                     existingInvoice.setPaymentMethod(invoice.getPaymentMethod());
                 }
+                if (invoice.getPaymentStatus() != null) {
+                    existingInvoice.setPaymentStatus(invoice.getPaymentStatus());
+                }
                 if (invoice.getPaymentRef() != null) {
                     existingInvoice.setPaymentRef(invoice.getPaymentRef());
                 }

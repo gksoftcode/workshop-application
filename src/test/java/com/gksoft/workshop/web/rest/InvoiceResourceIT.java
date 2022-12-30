@@ -11,6 +11,7 @@ import com.gksoft.workshop.domain.Invoice;
 import com.gksoft.workshop.domain.enumeration.DiscountType;
 import com.gksoft.workshop.domain.enumeration.PaymentMethod;
 import com.gksoft.workshop.domain.enumeration.PaymentMethod;
+import com.gksoft.workshop.domain.enumeration.PaymentStatus;
 import com.gksoft.workshop.repository.InvoiceRepository;
 import com.gksoft.workshop.service.InvoiceService;
 import java.time.Instant;
@@ -56,8 +57,8 @@ class InvoiceResourceIT {
     private static final Long DEFAULT_DISCOUNT = 1L;
     private static final Long UPDATED_DISCOUNT = 2L;
 
-    private static final Long DEFAULT_NOTES = 1L;
-    private static final Long UPDATED_NOTES = 2L;
+    private static final String DEFAULT_NOTES = "AAAAAAAAAA";
+    private static final String UPDATED_NOTES = "BBBBBBBBBB";
 
     private static final DiscountType DEFAULT_DISCOUNT_TYPE = DiscountType.PERCENTAGE;
     private static final DiscountType UPDATED_DISCOUNT_TYPE = DiscountType.AMOUNT;
@@ -79,6 +80,9 @@ class InvoiceResourceIT {
 
     private static final PaymentMethod DEFAULT_PAYMENT_METHOD = PaymentMethod.Cash;
     private static final PaymentMethod UPDATED_PAYMENT_METHOD = PaymentMethod.BankTransfer;
+
+    private static final PaymentStatus DEFAULT_PAYMENT_STATUS = PaymentStatus.Complete;
+    private static final PaymentStatus UPDATED_PAYMENT_STATUS = PaymentStatus.Incomplete;
 
     private static final String DEFAULT_PAYMENT_REF = "AAAAAAAAAA";
     private static final String UPDATED_PAYMENT_REF = "BBBBBBBBBB";
@@ -135,6 +139,7 @@ class InvoiceResourceIT {
             .depositPayRef(DEFAULT_DEPOSIT_PAY_REF)
             .isAlreadyPaied(DEFAULT_IS_ALREADY_PAIED)
             .paymentMethod(DEFAULT_PAYMENT_METHOD)
+            .paymentStatus(DEFAULT_PAYMENT_STATUS)
             .paymentRef(DEFAULT_PAYMENT_REF)
             .amount(DEFAULT_AMOUNT)
             .lastAmount(DEFAULT_LAST_AMOUNT)
@@ -162,6 +167,7 @@ class InvoiceResourceIT {
             .depositPayRef(UPDATED_DEPOSIT_PAY_REF)
             .isAlreadyPaied(UPDATED_IS_ALREADY_PAIED)
             .paymentMethod(UPDATED_PAYMENT_METHOD)
+            .paymentStatus(UPDATED_PAYMENT_STATUS)
             .paymentRef(UPDATED_PAYMENT_REF)
             .amount(UPDATED_AMOUNT)
             .lastAmount(UPDATED_LAST_AMOUNT)
@@ -199,6 +205,7 @@ class InvoiceResourceIT {
         assertThat(testInvoice.getDepositPayRef()).isEqualTo(DEFAULT_DEPOSIT_PAY_REF);
         assertThat(testInvoice.getIsAlreadyPaied()).isEqualTo(DEFAULT_IS_ALREADY_PAIED);
         assertThat(testInvoice.getPaymentMethod()).isEqualTo(DEFAULT_PAYMENT_METHOD);
+        assertThat(testInvoice.getPaymentStatus()).isEqualTo(DEFAULT_PAYMENT_STATUS);
         assertThat(testInvoice.getPaymentRef()).isEqualTo(DEFAULT_PAYMENT_REF);
         assertThat(testInvoice.getAmount()).isEqualTo(DEFAULT_AMOUNT);
         assertThat(testInvoice.getLastAmount()).isEqualTo(DEFAULT_LAST_AMOUNT);
@@ -239,7 +246,7 @@ class InvoiceResourceIT {
             .andExpect(jsonPath("$.[*].issueDate").value(hasItem(DEFAULT_ISSUE_DATE.toString())))
             .andExpect(jsonPath("$.[*].paymentTerms").value(hasItem(DEFAULT_PAYMENT_TERMS.intValue())))
             .andExpect(jsonPath("$.[*].discount").value(hasItem(DEFAULT_DISCOUNT.intValue())))
-            .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES.intValue())))
+            .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES)))
             .andExpect(jsonPath("$.[*].discountType").value(hasItem(DEFAULT_DISCOUNT_TYPE.toString())))
             .andExpect(jsonPath("$.[*].depositAmount").value(hasItem(DEFAULT_DEPOSIT_AMOUNT.intValue())))
             .andExpect(jsonPath("$.[*].isDepositPaied").value(hasItem(DEFAULT_IS_DEPOSIT_PAIED.booleanValue())))
@@ -247,6 +254,7 @@ class InvoiceResourceIT {
             .andExpect(jsonPath("$.[*].depositPayRef").value(hasItem(DEFAULT_DEPOSIT_PAY_REF)))
             .andExpect(jsonPath("$.[*].isAlreadyPaied").value(hasItem(DEFAULT_IS_ALREADY_PAIED.booleanValue())))
             .andExpect(jsonPath("$.[*].paymentMethod").value(hasItem(DEFAULT_PAYMENT_METHOD.toString())))
+            .andExpect(jsonPath("$.[*].paymentStatus").value(hasItem(DEFAULT_PAYMENT_STATUS.toString())))
             .andExpect(jsonPath("$.[*].paymentRef").value(hasItem(DEFAULT_PAYMENT_REF)))
             .andExpect(jsonPath("$.[*].amount").value(hasItem(DEFAULT_AMOUNT.intValue())))
             .andExpect(jsonPath("$.[*].lastAmount").value(hasItem(DEFAULT_LAST_AMOUNT.intValue())))
@@ -286,7 +294,7 @@ class InvoiceResourceIT {
             .andExpect(jsonPath("$.issueDate").value(DEFAULT_ISSUE_DATE.toString()))
             .andExpect(jsonPath("$.paymentTerms").value(DEFAULT_PAYMENT_TERMS.intValue()))
             .andExpect(jsonPath("$.discount").value(DEFAULT_DISCOUNT.intValue()))
-            .andExpect(jsonPath("$.notes").value(DEFAULT_NOTES.intValue()))
+            .andExpect(jsonPath("$.notes").value(DEFAULT_NOTES))
             .andExpect(jsonPath("$.discountType").value(DEFAULT_DISCOUNT_TYPE.toString()))
             .andExpect(jsonPath("$.depositAmount").value(DEFAULT_DEPOSIT_AMOUNT.intValue()))
             .andExpect(jsonPath("$.isDepositPaied").value(DEFAULT_IS_DEPOSIT_PAIED.booleanValue()))
@@ -294,6 +302,7 @@ class InvoiceResourceIT {
             .andExpect(jsonPath("$.depositPayRef").value(DEFAULT_DEPOSIT_PAY_REF))
             .andExpect(jsonPath("$.isAlreadyPaied").value(DEFAULT_IS_ALREADY_PAIED.booleanValue()))
             .andExpect(jsonPath("$.paymentMethod").value(DEFAULT_PAYMENT_METHOD.toString()))
+            .andExpect(jsonPath("$.paymentStatus").value(DEFAULT_PAYMENT_STATUS.toString()))
             .andExpect(jsonPath("$.paymentRef").value(DEFAULT_PAYMENT_REF))
             .andExpect(jsonPath("$.amount").value(DEFAULT_AMOUNT.intValue()))
             .andExpect(jsonPath("$.lastAmount").value(DEFAULT_LAST_AMOUNT.intValue()))
@@ -332,6 +341,7 @@ class InvoiceResourceIT {
             .depositPayRef(UPDATED_DEPOSIT_PAY_REF)
             .isAlreadyPaied(UPDATED_IS_ALREADY_PAIED)
             .paymentMethod(UPDATED_PAYMENT_METHOD)
+            .paymentStatus(UPDATED_PAYMENT_STATUS)
             .paymentRef(UPDATED_PAYMENT_REF)
             .amount(UPDATED_AMOUNT)
             .lastAmount(UPDATED_LAST_AMOUNT)
@@ -361,6 +371,7 @@ class InvoiceResourceIT {
         assertThat(testInvoice.getDepositPayRef()).isEqualTo(UPDATED_DEPOSIT_PAY_REF);
         assertThat(testInvoice.getIsAlreadyPaied()).isEqualTo(UPDATED_IS_ALREADY_PAIED);
         assertThat(testInvoice.getPaymentMethod()).isEqualTo(UPDATED_PAYMENT_METHOD);
+        assertThat(testInvoice.getPaymentStatus()).isEqualTo(UPDATED_PAYMENT_STATUS);
         assertThat(testInvoice.getPaymentRef()).isEqualTo(UPDATED_PAYMENT_REF);
         assertThat(testInvoice.getAmount()).isEqualTo(UPDATED_AMOUNT);
         assertThat(testInvoice.getLastAmount()).isEqualTo(UPDATED_LAST_AMOUNT);
@@ -442,7 +453,8 @@ class InvoiceResourceIT {
             .depositMethod(UPDATED_DEPOSIT_METHOD)
             .depositPayRef(UPDATED_DEPOSIT_PAY_REF)
             .isAlreadyPaied(UPDATED_IS_ALREADY_PAIED)
-            .amount(UPDATED_AMOUNT);
+            .paymentRef(UPDATED_PAYMENT_REF)
+            .shippingFees(UPDATED_SHIPPING_FEES);
 
         restInvoiceMockMvc
             .perform(
@@ -468,10 +480,11 @@ class InvoiceResourceIT {
         assertThat(testInvoice.getDepositPayRef()).isEqualTo(UPDATED_DEPOSIT_PAY_REF);
         assertThat(testInvoice.getIsAlreadyPaied()).isEqualTo(UPDATED_IS_ALREADY_PAIED);
         assertThat(testInvoice.getPaymentMethod()).isEqualTo(DEFAULT_PAYMENT_METHOD);
-        assertThat(testInvoice.getPaymentRef()).isEqualTo(DEFAULT_PAYMENT_REF);
-        assertThat(testInvoice.getAmount()).isEqualTo(UPDATED_AMOUNT);
+        assertThat(testInvoice.getPaymentStatus()).isEqualTo(DEFAULT_PAYMENT_STATUS);
+        assertThat(testInvoice.getPaymentRef()).isEqualTo(UPDATED_PAYMENT_REF);
+        assertThat(testInvoice.getAmount()).isEqualTo(DEFAULT_AMOUNT);
         assertThat(testInvoice.getLastAmount()).isEqualTo(DEFAULT_LAST_AMOUNT);
-        assertThat(testInvoice.getShippingFees()).isEqualTo(DEFAULT_SHIPPING_FEES);
+        assertThat(testInvoice.getShippingFees()).isEqualTo(UPDATED_SHIPPING_FEES);
     }
 
     @Test
@@ -499,6 +512,7 @@ class InvoiceResourceIT {
             .depositPayRef(UPDATED_DEPOSIT_PAY_REF)
             .isAlreadyPaied(UPDATED_IS_ALREADY_PAIED)
             .paymentMethod(UPDATED_PAYMENT_METHOD)
+            .paymentStatus(UPDATED_PAYMENT_STATUS)
             .paymentRef(UPDATED_PAYMENT_REF)
             .amount(UPDATED_AMOUNT)
             .lastAmount(UPDATED_LAST_AMOUNT)
@@ -528,6 +542,7 @@ class InvoiceResourceIT {
         assertThat(testInvoice.getDepositPayRef()).isEqualTo(UPDATED_DEPOSIT_PAY_REF);
         assertThat(testInvoice.getIsAlreadyPaied()).isEqualTo(UPDATED_IS_ALREADY_PAIED);
         assertThat(testInvoice.getPaymentMethod()).isEqualTo(UPDATED_PAYMENT_METHOD);
+        assertThat(testInvoice.getPaymentStatus()).isEqualTo(UPDATED_PAYMENT_STATUS);
         assertThat(testInvoice.getPaymentRef()).isEqualTo(UPDATED_PAYMENT_REF);
         assertThat(testInvoice.getAmount()).isEqualTo(UPDATED_AMOUNT);
         assertThat(testInvoice.getLastAmount()).isEqualTo(UPDATED_LAST_AMOUNT);

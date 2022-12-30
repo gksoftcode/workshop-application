@@ -25,5 +25,11 @@
                                  constraintName="fk_employee__work_orders_id"
                                  referencedColumnNames="id"
                                  referencedTableName="work_orders"/>
+
+        <addForeignKeyConstraint baseColumnNames="payment_credit_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee__payment_credit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_credit"/>
     </changeSet>
 </databaseChangeLog>

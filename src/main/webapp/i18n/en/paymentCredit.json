@@ -1,0 +1,33 @@
+{
+  "workshopApp": {
+    "paymentCredit": {
+      "home": {
+        "title": "Payment Credits",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payment Credit",
+        "createOrEditLabel": "Create or edit a Payment Credit",
+        "notFound": "No Payment Credits found"
+      },
+      "created": "A new Payment Credit is created with identifier {{ param }}",
+      "updated": "A Payment Credit is updated with identifier {{ param }}",
+      "deleted": "A Payment Credit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Credit {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Credit"
+      },
+      "id": "ID",
+      "paymentMethod": "Payment Method",
+      "paymentRef": "Payment Ref",
+      "amount": "Amount",
+      "addDate": "Add Date",
+      "paymentStatus": "Payment Status",
+      "paymentDetails": "Payment Details",
+      "receiptNotes": "Receipt Notes",
+      "collectedBy": "Collected By",
+      "attachments": "Attachments",
+      "workOrders": "Work Orders"
+    }
+  }
+}

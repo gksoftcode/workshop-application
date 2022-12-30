@@ -30,6 +30,7 @@
       "depositPayRef": "Deposit Pay Ref",
       "isAlreadyPaied": "Is Already Paied",
       "paymentMethod": "Payment Method",
+      "paymentStatus": "Payment Status",
       "paymentRef": "Payment Ref",
       "amount": "Amount",
       "lastAmount": "Last Amount",

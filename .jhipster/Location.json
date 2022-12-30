@@ -31,7 +31,6 @@
     }
   ],
   "fluentMethods": true,
-  "javadoc": "not an ignored comment",
   "jpaMetamodelFiltering": false,
   "name": "Location",
   "pagination": "pagination",

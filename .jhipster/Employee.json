@@ -36,7 +36,6 @@
     }
   ],
   "fluentMethods": true,
-  "javadoc": "The Employee entity.",
   "jpaMetamodelFiltering": false,
   "name": "Employee",
   "pagination": "pagination",
@@ -63,6 +62,12 @@
       "otherEntityName": "workOrders",
       "otherEntityRelationshipName": "assignedStaffs",
       "relationshipName": "workOrders",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "paymentCredit",
+      "otherEntityRelationshipName": "collectedBy",
+      "relationshipName": "paymentCredit",
       "relationshipType": "many-to-one"
     }
   ],

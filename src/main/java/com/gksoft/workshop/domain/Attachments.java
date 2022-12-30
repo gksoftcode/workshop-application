@@ -49,6 +49,11 @@ public class Attachments implements Serializable {
     @JsonIgnoreProperties(value = { "supplier", "invoiceDetails", "services", "attachments", "workOrders" }, allowSetters = true)
     private Set<PurchaseOrder> purchaseOrders = new HashSet<>();
 
+    @ManyToMany(mappedBy = "attachments")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "collectedBies", "attachments", "workOrders" }, allowSetters = true)
+    private Set<PaymentCredit> paymentCredits = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public Long getId() {
@@ -193,6 +198,37 @@ public class Attachments implements Serializable {
     public Attachments removePurchaseOrder(PurchaseOrder purchaseOrder) {
         this.purchaseOrders.remove(purchaseOrder);
         purchaseOrder.getAttachments().remove(this);
+        return this;
+    }
+
+    public Set<PaymentCredit> getPaymentCredits() {
+        return this.paymentCredits;
+    }
+
+    public void setPaymentCredits(Set<PaymentCredit> paymentCredits) {
+        if (this.paymentCredits != null) {
+            this.paymentCredits.forEach(i -> i.removeAttachments(this));
+        }
+        if (paymentCredits != null) {
+            paymentCredits.forEach(i -> i.addAttachments(this));
+        }
+        this.paymentCredits = paymentCredits;
+    }
+
+    public Attachments paymentCredits(Set<PaymentCredit> paymentCredits) {
+        this.setPaymentCredits(paymentCredits);
+        return this;
+    }
+
+    public Attachments addPaymentCredit(PaymentCredit paymentCredit) {
+        this.paymentCredits.add(paymentCredit);
+        paymentCredit.getAttachments().add(this);
+        return this;
+    }
+
+    public Attachments removePaymentCredit(PaymentCredit paymentCredit) {
+        this.paymentCredits.remove(paymentCredit);
+        paymentCredit.getAttachments().remove(this);
         return this;
     }
 

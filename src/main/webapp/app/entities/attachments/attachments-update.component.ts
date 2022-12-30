@@ -14,6 +14,9 @@ import { IInvoice } from '@/shared/model/invoice.model';
 import PurchaseOrderService from '@/entities/purchase-order/purchase-order.service';
 import { IPurchaseOrder } from '@/shared/model/purchase-order.model';
 
+import PaymentCreditService from '@/entities/payment-credit/payment-credit.service';
+import { IPaymentCredit } from '@/shared/model/payment-credit.model';
+
 import { IAttachments, Attachments } from '@/shared/model/attachments.model';
 import AttachmentsService from './attachments.service';
 
@@ -44,6 +47,10 @@ export default class AttachmentsUpdate extends mixins(JhiDataUtils) {
   @Inject('purchaseOrderService') private purchaseOrderService: () => PurchaseOrderService;
 
   public purchaseOrders: IPurchaseOrder[] = [];
+
+  @Inject('paymentCreditService') private paymentCreditService: () => PaymentCreditService;
+
+  public paymentCredits: IPaymentCredit[] = [];
   public isSaving = false;
   public currentLanguage = '';
 
@@ -139,6 +146,11 @@ export default class AttachmentsUpdate extends mixins(JhiDataUtils) {
       .retrieve()
       .then(res => {
         this.purchaseOrders = res.data;
+      });
+    this.paymentCreditService()
+      .retrieve()
+      .then(res => {
+        this.paymentCredits = res.data;
       });
   }
 }

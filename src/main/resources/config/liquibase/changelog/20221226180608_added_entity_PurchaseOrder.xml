@@ -50,6 +50,9 @@
             <column name="payment_method" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="payment_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="payment_ref" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -117,6 +120,7 @@
             <column name="deposit_pay_ref" type="string"/>
             <column name="is_already_paied" type="boolean"/>
             <column name="payment_method" type="string"/>
+            <column name="payment_status" type="string"/>
             <column name="payment_ref" type="string"/>
             <column name="amount" type="numeric"/>
             <column name="last_amount" type="numeric"/>

@@ -148,6 +148,31 @@
               </option>
             </select>
           </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="$t('workshopApp.employee.paymentCredit')" for="employee-paymentCredit"
+              >Payment Credit</label
+            >
+            <select
+              class="form-control"
+              id="employee-paymentCredit"
+              data-cy="paymentCredit"
+              name="paymentCredit"
+              v-model="employee.paymentCredit"
+            >
+              <option v-bind:value="null"></option>
+              <option
+                v-bind:value="
+                  employee.paymentCredit && paymentCreditOption.id === employee.paymentCredit.id
+                    ? employee.paymentCredit
+                    : paymentCreditOption
+                "
+                v-for="paymentCreditOption in paymentCredits"
+                :key="paymentCreditOption.id"
+              >
+                {{ paymentCreditOption.id }}
+              </option>
+            </select>
+          </div>
         </div>
         <div>
           <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" v-on:click="previousState()">

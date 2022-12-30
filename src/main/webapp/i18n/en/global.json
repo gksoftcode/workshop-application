@@ -31,6 +31,7 @@
         "invoiceDetails": "Invoice Details",
         "purchaseOrder": "Purchase Order",
         "purchaseOrderDetails": "Purchase Order Details",
+        "paymentCredit": "Payment Credit",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

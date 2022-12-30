@@ -41,6 +41,13 @@
       "ownerSide": false,
       "relationshipName": "purchaseOrder",
       "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "paymentCredit",
+      "otherEntityRelationshipName": "attachments",
+      "ownerSide": false,
+      "relationshipName": "paymentCredit",
+      "relationshipType": "many-to-many"
     }
   ],
   "service": "serviceClass"

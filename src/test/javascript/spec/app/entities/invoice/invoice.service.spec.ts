@@ -8,6 +8,7 @@ import InvoiceService from '@/entities/invoice/invoice.service';
 import { Invoice } from '@/shared/model/invoice.model';
 import { DiscountType } from '@/shared/model/enumerations/discount-type.model';
 import { PaymentMethod } from '@/shared/model/enumerations/payment-method.model';
+import { PaymentStatus } from '@/shared/model/enumerations/payment-status.model';
 
 const error = {
   response: {
@@ -41,7 +42,7 @@ describe('Service Tests', () => {
         currentDate,
         0,
         0,
-        0,
+        'AAAAAAA',
         DiscountType.PERCENTAGE,
         0,
         false,
@@ -49,6 +50,7 @@ describe('Service Tests', () => {
         'AAAAAAA',
         false,
         PaymentMethod.Cash,
+        PaymentStatus.Complete,
         'AAAAAAA',
         0,
         0,
@@ -123,7 +125,7 @@ describe('Service Tests', () => {
             issueDate: dayjs(currentDate).format(DATE_TIME_FORMAT),
             paymentTerms: 1,
             discount: 1,
-            notes: 1,
+            notes: 'BBBBBB',
             discountType: 'BBBBBB',
             depositAmount: 1,
             isDepositPaied: true,
@@ -131,6 +133,7 @@ describe('Service Tests', () => {
             depositPayRef: 'BBBBBB',
             isAlreadyPaied: true,
             paymentMethod: 'BBBBBB',
+            paymentStatus: 'BBBBBB',
             paymentRef: 'BBBBBB',
             amount: 1,
             lastAmount: 1,
@@ -174,7 +177,7 @@ describe('Service Tests', () => {
             isDepositPaied: true,
             depositPayRef: 'BBBBBB',
             paymentMethod: 'BBBBBB',
-            shippingFees: 1,
+            lastAmount: 1,
           },
           new Invoice()
         );
@@ -212,7 +215,7 @@ describe('Service Tests', () => {
             issueDate: dayjs(currentDate).format(DATE_TIME_FORMAT),
             paymentTerms: 1,
             discount: 1,
-            notes: 1,
+            notes: 'BBBBBB',
             discountType: 'BBBBBB',
             depositAmount: 1,
             isDepositPaied: true,
@@ -220,6 +223,7 @@ describe('Service Tests', () => {
             depositPayRef: 'BBBBBB',
             isAlreadyPaied: true,
             paymentMethod: 'BBBBBB',
+            paymentStatus: 'BBBBBB',
             paymentRef: 'BBBBBB',
             amount: 1,
             lastAmount: 1,

@@ -29,6 +29,7 @@
       "manager": "Manager",
       "department": "Department",
       "workOrders": "Work Orders",
+      "paymentCredit": "Payment Credit",
       "help": {
         "firstName": "The firstname attribute."
       }

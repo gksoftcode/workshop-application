@@ -101,6 +101,12 @@
       "otherEntityRelationshipName": "workOrders",
       "relationshipName": "purchaseOrder",
       "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "paymentCredit",
+      "otherEntityRelationshipName": "workOrders",
+      "relationshipName": "paymentCredit",
+      "relationshipType": "one-to-many"
     }
   ],
   "service": "serviceClass"

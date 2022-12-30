@@ -31,7 +31,7 @@ public class Department implements Serializable {
 
     @OneToMany(mappedBy = "department")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "jobs", "manager", "department", "workOrders" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "jobs", "manager", "department", "workOrders", "paymentCredit" }, allowSetters = true)
     private Set<Employee> employees = new HashSet<>();
 
     @ManyToOne

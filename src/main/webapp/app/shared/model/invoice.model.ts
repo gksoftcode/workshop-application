@@ -6,13 +6,14 @@ import { IWorkOrders } from '@/shared/model/work-orders.model';
 
 import { DiscountType } from '@/shared/model/enumerations/discount-type.model';
 import { PaymentMethod } from '@/shared/model/enumerations/payment-method.model';
+import { PaymentStatus } from '@/shared/model/enumerations/payment-status.model';
 export interface IInvoice {
   id?: number;
   invoiceDate?: Date | null;
   issueDate?: Date | null;
   paymentTerms?: number | null;
   discount?: number | null;
-  notes?: number | null;
+  notes?: string | null;
   discountType?: DiscountType | null;
   depositAmount?: number | null;
   isDepositPaied?: boolean | null;
@@ -20,6 +21,7 @@ export interface IInvoice {
   depositPayRef?: string | null;
   isAlreadyPaied?: boolean | null;
   paymentMethod?: PaymentMethod | null;
+  paymentStatus?: PaymentStatus | null;
   paymentRef?: string | null;
   amount?: number | null;
   lastAmount?: number | null;
@@ -38,7 +40,7 @@ export class Invoice implements IInvoice {
     public issueDate?: Date | null,
     public paymentTerms?: number | null,
     public discount?: number | null,
-    public notes?: number | null,
+    public notes?: string | null,
     public discountType?: DiscountType | null,
     public depositAmount?: number | null,
     public isDepositPaied?: boolean | null,
@@ -46,6 +48,7 @@ export class Invoice implements IInvoice {
     public depositPayRef?: string | null,
     public isAlreadyPaied?: boolean | null,
     public paymentMethod?: PaymentMethod | null,
+    public paymentStatus?: PaymentStatus | null,
     public paymentRef?: string | null,
     public amount?: number | null,
     public lastAmount?: number | null,
