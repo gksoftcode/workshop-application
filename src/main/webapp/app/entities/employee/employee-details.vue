@@ -78,6 +78,16 @@
               }}</router-link>
             </div>
           </dd>
+          <dt>
+            <span v-text="$t('workshopApp.employee.paymentCredit')">Payment Credit</span>
+          </dt>
+          <dd>
+            <div v-if="employee.paymentCredit">
+              <router-link :to="{ name: 'PaymentCreditView', params: { paymentCreditId: employee.paymentCredit.id } }">{{
+                employee.paymentCredit.id
+              }}</router-link>
+            </div>
+          </dd>
         </dl>
         <button type="submit" v-on:click.prevent="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
           <font-awesome-icon icon="arrow-left"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.back')"> Back</span>

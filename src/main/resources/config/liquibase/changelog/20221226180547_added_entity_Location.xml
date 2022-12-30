@@ -10,7 +10,7 @@
         Added the entity Location.
     -->
     <changeSet id="20221226180547-1" author="jhipster">
-        <createTable tableName="location" remarks="not an ignored comment">
+        <createTable tableName="location">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

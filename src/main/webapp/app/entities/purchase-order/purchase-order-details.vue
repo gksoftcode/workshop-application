@@ -79,6 +79,12 @@
             <span v-text="$t('workshopApp.PaymentMethod.' + purchaseOrder.paymentMethod)">{{ purchaseOrder.paymentMethod }}</span>
           </dd>
           <dt>
+            <span v-text="$t('workshopApp.purchaseOrder.paymentStatus')">Payment Status</span>
+          </dt>
+          <dd>
+            <span v-text="$t('workshopApp.PaymentStatus.' + purchaseOrder.paymentStatus)">{{ purchaseOrder.paymentStatus }}</span>
+          </dd>
+          <dt>
             <span v-text="$t('workshopApp.purchaseOrder.paymentRef')">Payment Ref</span>
           </dt>
           <dd>

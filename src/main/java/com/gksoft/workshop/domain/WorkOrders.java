@@ -68,7 +68,7 @@ public class WorkOrders implements Serializable {
 
     @OneToMany(mappedBy = "workOrders")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "jobs", "manager", "department", "workOrders" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "jobs", "manager", "department", "workOrders", "paymentCredit" }, allowSetters = true)
     private Set<Employee> assignedStaffs = new HashSet<>();
 
     @OneToMany(mappedBy = "workOrders")
@@ -90,6 +90,11 @@ public class WorkOrders implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "supplier", "invoiceDetails", "services", "attachments", "workOrders" }, allowSetters = true)
     private Set<PurchaseOrder> purchaseOrders = new HashSet<>();
+
+    @OneToMany(mappedBy = "workOrders")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "collectedBies", "attachments", "workOrders" }, allowSetters = true)
+    private Set<PaymentCredit> paymentCredits = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -414,6 +419,37 @@ public class WorkOrders implements Serializable {
     public WorkOrders removePurchaseOrder(PurchaseOrder purchaseOrder) {
         this.purchaseOrders.remove(purchaseOrder);
         purchaseOrder.setWorkOrders(null);
+        return this;
+    }
+
+    public Set<PaymentCredit> getPaymentCredits() {
+        return this.paymentCredits;
+    }
+
+    public void setPaymentCredits(Set<PaymentCredit> paymentCredits) {
+        if (this.paymentCredits != null) {
+            this.paymentCredits.forEach(i -> i.setWorkOrders(null));
+        }
+        if (paymentCredits != null) {
+            paymentCredits.forEach(i -> i.setWorkOrders(this));
+        }
+        this.paymentCredits = paymentCredits;
+    }
+
+    public WorkOrders paymentCredits(Set<PaymentCredit> paymentCredits) {
+        this.setPaymentCredits(paymentCredits);
+        return this;
+    }
+
+    public WorkOrders addPaymentCredit(PaymentCredit paymentCredit) {
+        this.paymentCredits.add(paymentCredit);
+        paymentCredit.setWorkOrders(this);
+        return this;
+    }
+
+    public WorkOrders removePaymentCredit(PaymentCredit paymentCredit) {
+        this.paymentCredits.remove(paymentCredit);
+        paymentCredit.setWorkOrders(null);
         return this;
     }
 

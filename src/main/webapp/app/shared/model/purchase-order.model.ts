@@ -6,6 +6,7 @@ import { IWorkOrders } from '@/shared/model/work-orders.model';
 
 import { DiscountType } from '@/shared/model/enumerations/discount-type.model';
 import { PaymentMethod } from '@/shared/model/enumerations/payment-method.model';
+import { PaymentStatus } from '@/shared/model/enumerations/payment-status.model';
 export interface IPurchaseOrder {
   id?: number;
   invoiceDate?: Date | null;
@@ -20,6 +21,7 @@ export interface IPurchaseOrder {
   depositPayRef?: string | null;
   isAlreadyPaied?: boolean | null;
   paymentMethod?: PaymentMethod | null;
+  paymentStatus?: PaymentStatus | null;
   paymentRef?: string | null;
   amount?: number | null;
   lastAmount?: number | null;
@@ -46,6 +48,7 @@ export class PurchaseOrder implements IPurchaseOrder {
     public depositPayRef?: string | null,
     public isAlreadyPaied?: boolean | null,
     public paymentMethod?: PaymentMethod | null,
+    public paymentStatus?: PaymentStatus | null,
     public paymentRef?: string | null,
     public amount?: number | null,
     public lastAmount?: number | null,

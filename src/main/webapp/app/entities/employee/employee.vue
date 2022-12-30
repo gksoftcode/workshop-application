@@ -72,6 +72,10 @@
               <span v-text="$t('workshopApp.employee.workOrders')">Work Orders</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'workOrders.id'"></jhi-sort-indicator>
             </th>
+            <th scope="row" v-on:click="changeOrder('paymentCredit.id')">
+              <span v-text="$t('workshopApp.employee.paymentCredit')">Payment Credit</span>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'paymentCredit.id'"></jhi-sort-indicator>
+            </th>
             <th scope="row"></th>
           </tr>
         </thead>
@@ -105,6 +109,13 @@
               <div v-if="employee.workOrders">
                 <router-link :to="{ name: 'WorkOrdersView', params: { workOrdersId: employee.workOrders.id } }">{{
                   employee.workOrders.id
+                }}</router-link>
+              </div>
+            </td>
+            <td>
+              <div v-if="employee.paymentCredit">
+                <router-link :to="{ name: 'PaymentCreditView', params: { paymentCreditId: employee.paymentCredit.id } }">{{
+                  employee.paymentCredit.id
                 }}</router-link>
               </div>
             </td>

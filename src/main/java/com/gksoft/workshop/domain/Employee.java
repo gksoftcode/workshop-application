@@ -11,9 +11,8 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
- * The Employee entity.
+ * A Employee.
  */
-@Schema(description = "The Employee entity.")
 @Entity
 @Table(name = "employee")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -58,7 +57,7 @@ public class Employee implements Serializable {
     private Set<Job> jobs = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "jobs", "manager", "department", "workOrders" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "jobs", "manager", "department", "workOrders", "paymentCredit" }, allowSetters = true)
     private Employee manager;
 
     @ManyToOne
@@ -68,11 +67,24 @@ public class Employee implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties(
         value = {
-            "status", "client", "itemModels", "itemBrand", "assignedStaffs", "appintments", "attachmentNotes", "invoices", "purchaseOrders",
+            "status",
+            "client",
+            "itemModels",
+            "itemBrand",
+            "assignedStaffs",
+            "appintments",
+            "attachmentNotes",
+            "invoices",
+            "purchaseOrders",
+            "paymentCredits",
         },
         allowSetters = true
     )
     private WorkOrders workOrders;
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = { "collectedBies", "attachments", "workOrders" }, allowSetters = true)
+    private PaymentCredit paymentCredit;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -247,6 +259,19 @@ public class Employee implements Serializable {
 
     public Employee workOrders(WorkOrders workOrders) {
         this.setWorkOrders(workOrders);
+        return this;
+    }
+
+    public PaymentCredit getPaymentCredit() {
+        return this.paymentCredit;
+    }
+
+    public void setPaymentCredit(PaymentCredit paymentCredit) {
+        this.paymentCredit = paymentCredit;
+    }
+
+    public Employee paymentCredit(PaymentCredit paymentCredit) {
+        this.setPaymentCredit(paymentCredit);
         return this;
     }
 

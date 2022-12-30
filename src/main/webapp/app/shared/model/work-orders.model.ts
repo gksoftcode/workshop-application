@@ -7,6 +7,7 @@ import { IAppintment } from '@/shared/model/appintment.model';
 import { IAttachmentNotes } from '@/shared/model/attachment-notes.model';
 import { IInvoice } from '@/shared/model/invoice.model';
 import { IPurchaseOrder } from '@/shared/model/purchase-order.model';
+import { IPaymentCredit } from '@/shared/model/payment-credit.model';
 
 export interface IWorkOrders {
   id?: number;
@@ -27,6 +28,7 @@ export interface IWorkOrders {
   attachmentNotes?: IAttachmentNotes[] | null;
   invoices?: IInvoice[] | null;
   purchaseOrders?: IPurchaseOrder[] | null;
+  paymentCredits?: IPaymentCredit[] | null;
 }
 
 export class WorkOrders implements IWorkOrders {
@@ -48,7 +50,8 @@ export class WorkOrders implements IWorkOrders {
     public appintments?: IAppintment[] | null,
     public attachmentNotes?: IAttachmentNotes[] | null,
     public invoices?: IInvoice[] | null,
-    public purchaseOrders?: IPurchaseOrder[] | null
+    public purchaseOrders?: IPurchaseOrder[] | null,
+    public paymentCredits?: IPaymentCredit[] | null
   ) {
     this.isWaranty = this.isWaranty ?? false;
   }

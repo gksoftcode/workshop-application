@@ -23,7 +23,7 @@
     },
     {
       "fieldName": "notes",
-      "fieldType": "Long"
+      "fieldType": "String"
     },
     {
       "fieldName": "discountType",
@@ -55,6 +55,11 @@
       "fieldName": "paymentMethod",
       "fieldType": "PaymentMethod",
       "fieldValues": "Cash,BankTransfer,Card,Cheque"
+    },
+    {
+      "fieldName": "paymentStatus",
+      "fieldType": "PaymentStatus",
+      "fieldValues": "Complete,Incomplete,Pending,Failed"
     },
     {
       "fieldName": "paymentRef",

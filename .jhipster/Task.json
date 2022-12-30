@@ -15,7 +15,6 @@
     }
   ],
   "fluentMethods": true,
-  "javadoc": "Task entity.\\n@author The JHipster team.",
   "jpaMetamodelFiltering": false,
   "name": "Task",
   "pagination": "pagination",

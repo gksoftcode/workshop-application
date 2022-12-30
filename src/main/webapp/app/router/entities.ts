@@ -147,6 +147,12 @@ const PurchaseOrderDetails = () => import('@/entities/purchase-order-details/pur
 const PurchaseOrderDetailsUpdate = () => import('@/entities/purchase-order-details/purchase-order-details-update.vue');
 // prettier-ignore
 const PurchaseOrderDetailsDetails = () => import('@/entities/purchase-order-details/purchase-order-details-details.vue');
+// prettier-ignore
+const PaymentCredit = () => import('@/entities/payment-credit/payment-credit.vue');
+// prettier-ignore
+const PaymentCreditUpdate = () => import('@/entities/payment-credit/payment-credit-update.vue');
+// prettier-ignore
+const PaymentCreditDetails = () => import('@/entities/payment-credit/payment-credit-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default {
@@ -727,6 +733,30 @@ export default {
       path: 'purchase-order-details/:purchaseOrderDetailsId/view',
       name: 'PurchaseOrderDetailsView',
       component: PurchaseOrderDetailsDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'payment-credit',
+      name: 'PaymentCredit',
+      component: PaymentCredit,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'payment-credit/new',
+      name: 'PaymentCreditCreate',
+      component: PaymentCreditUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'payment-credit/:paymentCreditId/edit',
+      name: 'PaymentCreditEdit',
+      component: PaymentCreditUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'payment-credit/:paymentCreditId/view',
+      name: 'PaymentCreditView',
+      component: PaymentCreditDetails,
       meta: { authorities: [Authority.USER] },
     },
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

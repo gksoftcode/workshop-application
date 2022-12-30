@@ -1,9 +1,6 @@
 entity Country {
 	name String
 }
-
-// an ignored comment
-/** not an ignored comment */
 entity Location {
 name String,
 	streetAddress String,
@@ -12,23 +9,14 @@ name String,
     lang String,
     lat String
 }
-
 entity Department {
 	departmentName String required
 }
 
-/**
- * Task entity.
- * @author The JHipster team.
- */
 entity Task {
 	title String,
 	description String
 }
-
-/**
- * The Employee entity.
- */
 entity Employee {
 	/**
 	* The firstname attribute.
@@ -41,7 +29,6 @@ entity Employee {
 	salary Long,
 	commissionPct Long
 }
-
 entity Job {
 	jobTitle String,
 	minSalary Long,
@@ -53,11 +40,6 @@ entity JobHistory {
 	endDate Instant,
 }
 
-
-
-/**
- * The Employee entity.
- */
 entity Client {
  
 	fullName String,
@@ -134,12 +116,18 @@ note String
     Card,
     Cheque
  }
+   enum PaymentStatus{
+    Complete,
+    Incomplete,
+    Pending,
+    Failed
+ }
  entity Invoice {
  invoiceDate Instant,
  issueDate Instant,
  paymentTerms Long,
   discount Long,
- notes Long,
+ notes String,
  discountType DiscountType,
  depositAmount Long,
  isDepositPaied Boolean,
@@ -147,6 +135,7 @@ note String
  depositPayRef String,
  isAlreadyPaied Boolean,
 paymentMethod PaymentMethod,
+paymentStatus PaymentStatus,
 paymentRef String,
 amount Long,
 lastAmount Long,
@@ -175,6 +164,7 @@ shippingFees Long
  depositPayRef String,
  isAlreadyPaied Boolean,
 paymentMethod PaymentMethod,
+paymentStatus PaymentStatus,
 paymentRef String,
 amount Long,
 lastAmount Long,
@@ -189,7 +179,15 @@ shippingFees Long
       discount Long,
        totalAmount Long
  }
- 
+  entity PaymentCredit {
+  paymentMethod PaymentMethod,
+paymentRef String,
+amount Long,
+ addDate Instant,
+paymentStatus PaymentStatus,
+paymentDetails String,
+receiptNotes String,
+ }
 relationship OneToOne {
      WorkOrders{status(name)} to Status,
      WorkOrders{client(fullName)} to Client,
@@ -211,6 +209,7 @@ relationship ManyToMany {
      Supplier{location(name)} to Location{supplier},
  Invoice{attachments(name)} to Attachments{invoice},
   PurchaseOrder{attachments(name)} to Attachments{purchaseOrder},
+    PaymentCredit{attachments(name)} to Attachments{paymentCredit},
 }
 
 // defining multiple OneToMany relationships with comments
@@ -224,10 +223,13 @@ relationship OneToMany {
     
      WorkOrders{invoice} to Invoice,
          WorkOrders{purchaseOrder} to PurchaseOrder,
+          WorkOrders{paymentCredit} to PaymentCredit,
+          
      Invoice{invoiceDetails} to InvoiceDetails,
          Invoice{services} to Services,
          PurchaseOrder{invoiceDetails} to PurchaseOrderDetails,
          PurchaseOrder{services} to Services,
+         PaymentCredit{collectedBy} to Employee,
 }
 
 relationship ManyToOne {

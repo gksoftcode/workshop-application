@@ -36,7 +36,16 @@ public class Appintment implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties(
         value = {
-            "status", "client", "itemModels", "itemBrand", "assignedStaffs", "appintments", "attachmentNotes", "invoices", "purchaseOrders",
+            "status",
+            "client",
+            "itemModels",
+            "itemBrand",
+            "assignedStaffs",
+            "appintments",
+            "attachmentNotes",
+            "invoices",
+            "purchaseOrders",
+            "paymentCredits",
         },
         allowSetters = true
     )

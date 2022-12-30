@@ -1,0 +1,67 @@
+{
+  "applications": "*",
+  "changelogDate": "20221230044511",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "payment_credit",
+  "fields": [
+    {
+      "fieldName": "paymentMethod",
+      "fieldType": "PaymentMethod",
+      "fieldValues": "Cash,BankTransfer,Card,Cheque"
+    },
+    {
+      "fieldName": "paymentRef",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "addDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "paymentStatus",
+      "fieldType": "PaymentStatus",
+      "fieldValues": "Complete,Incomplete,Pending,Failed"
+    },
+    {
+      "fieldName": "paymentDetails",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "receiptNotes",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PaymentCredit",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "paymentCredit",
+      "relationshipName": "collectedBy",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "attachments",
+      "otherEntityRelationshipName": "paymentCredit",
+      "ownerSide": true,
+      "relationshipName": "attachments",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "workOrders",
+      "otherEntityRelationshipName": "paymentCredit",
+      "relationshipName": "workOrders",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

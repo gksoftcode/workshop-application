@@ -32,6 +32,9 @@ import { IInvoice } from '@/shared/model/invoice.model';
 import PurchaseOrderService from '@/entities/purchase-order/purchase-order.service';
 import { IPurchaseOrder } from '@/shared/model/purchase-order.model';
 
+import PaymentCreditService from '@/entities/payment-credit/payment-credit.service';
+import { IPaymentCredit } from '@/shared/model/payment-credit.model';
+
 import { IWorkOrders, WorkOrders } from '@/shared/model/work-orders.model';
 import WorkOrdersService from './work-orders.service';
 
@@ -92,6 +95,10 @@ export default class WorkOrdersUpdate extends Vue {
   @Inject('purchaseOrderService') private purchaseOrderService: () => PurchaseOrderService;
 
   public purchaseOrders: IPurchaseOrder[] = [];
+
+  @Inject('paymentCreditService') private paymentCreditService: () => PaymentCreditService;
+
+  public paymentCredits: IPaymentCredit[] = [];
   public isSaving = false;
   public currentLanguage = '';
 
@@ -242,6 +249,11 @@ export default class WorkOrdersUpdate extends Vue {
       .retrieve()
       .then(res => {
         this.purchaseOrders = res.data;
+      });
+    this.paymentCreditService()
+      .retrieve()
+      .then(res => {
+        this.paymentCredits = res.data;
       });
   }
 }

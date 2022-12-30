@@ -24,6 +24,7 @@ import { IInvoice, Invoice } from '@/shared/model/invoice.model';
 import InvoiceService from './invoice.service';
 import { DiscountType } from '@/shared/model/enumerations/discount-type.model';
 import { PaymentMethod } from '@/shared/model/enumerations/payment-method.model';
+import { PaymentStatus } from '@/shared/model/enumerations/payment-status.model';
 
 const validations: any = {
   invoice: {
@@ -39,6 +40,7 @@ const validations: any = {
     depositPayRef: {},
     isAlreadyPaied: {},
     paymentMethod: {},
+    paymentStatus: {},
     paymentRef: {},
     amount: {},
     lastAmount: {},
@@ -76,6 +78,7 @@ export default class InvoiceUpdate extends Vue {
   public workOrders: IWorkOrders[] = [];
   public discountTypeValues: string[] = Object.keys(DiscountType);
   public paymentMethodValues: string[] = Object.keys(PaymentMethod);
+  public paymentStatusValues: string[] = Object.keys(PaymentStatus);
   public isSaving = false;
   public currentLanguage = '';
 

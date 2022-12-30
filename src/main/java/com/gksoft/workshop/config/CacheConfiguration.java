@@ -96,6 +96,11 @@ public class CacheConfiguration {
             createCache(cm, com.gksoft.workshop.domain.PurchaseOrder.class.getName() + ".attachments");
             createCache(cm, com.gksoft.workshop.domain.PurchaseOrderDetails.class.getName());
             createCache(cm, com.gksoft.workshop.domain.Attachments.class.getName() + ".attachmentNotes");
+            createCache(cm, com.gksoft.workshop.domain.WorkOrders.class.getName() + ".paymentCredits");
+            createCache(cm, com.gksoft.workshop.domain.Attachments.class.getName() + ".paymentCredits");
+            createCache(cm, com.gksoft.workshop.domain.PaymentCredit.class.getName());
+            createCache(cm, com.gksoft.workshop.domain.PaymentCredit.class.getName() + ".collectedBies");
+            createCache(cm, com.gksoft.workshop.domain.PaymentCredit.class.getName() + ".attachments");
             // jhipster-needle-ehcache-add-entry
         };
     }

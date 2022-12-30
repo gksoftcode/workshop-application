@@ -1,7 +1,6 @@
 package com.gksoft.workshop.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,9 +9,8 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
- * The Employee entity.
+ * A Client.
  */
-@Schema(description = "The Employee entity.")
 @Entity
 @Table(name = "client")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)

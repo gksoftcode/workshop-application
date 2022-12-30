@@ -17,6 +17,8 @@ import JobService from '@/entities/job/job.service';
 import DepartmentService from '@/entities/department/department.service';
 
 import WorkOrdersService from '@/entities/work-orders/work-orders.service';
+
+import PaymentCreditService from '@/entities/payment-credit/payment-credit.service';
 import AlertService from '@/shared/alert/alert.service';
 
 const localVue = createLocalVue();
@@ -63,6 +65,11 @@ describe('Component Tests', () => {
 
           workOrdersService: () =>
             sinon.createStubInstance<WorkOrdersService>(WorkOrdersService, {
+              retrieve: sinon.stub().resolves({}),
+            } as any),
+
+          paymentCreditService: () =>
+            sinon.createStubInstance<PaymentCreditService>(PaymentCreditService, {
               retrieve: sinon.stub().resolves({}),
             } as any),
         },

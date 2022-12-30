@@ -23,7 +23,6 @@
     }
   ],
   "fluentMethods": true,
-  "javadoc": "The Employee entity.",
   "jpaMetamodelFiltering": false,
   "name": "Client",
   "pagination": "pagination",

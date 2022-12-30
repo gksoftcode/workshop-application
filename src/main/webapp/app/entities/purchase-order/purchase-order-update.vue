@@ -211,6 +211,28 @@
             </select>
           </div>
           <div class="form-group">
+            <label class="form-control-label" v-text="$t('workshopApp.purchaseOrder.paymentStatus')" for="purchase-order-paymentStatus"
+              >Payment Status</label
+            >
+            <select
+              class="form-control"
+              name="paymentStatus"
+              :class="{ valid: !$v.purchaseOrder.paymentStatus.$invalid, invalid: $v.purchaseOrder.paymentStatus.$invalid }"
+              v-model="$v.purchaseOrder.paymentStatus.$model"
+              id="purchase-order-paymentStatus"
+              data-cy="paymentStatus"
+            >
+              <option
+                v-for="paymentStatus in paymentStatusValues"
+                :key="paymentStatus"
+                v-bind:value="paymentStatus"
+                v-bind:label="$t('workshopApp.PaymentStatus.' + paymentStatus)"
+              >
+                {{ paymentStatus }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
             <label class="form-control-label" v-text="$t('workshopApp.purchaseOrder.paymentRef')" for="purchase-order-paymentRef"
               >Payment Ref</label
             >

@@ -26,7 +26,7 @@
             <column name="discount" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="notes" type="bigint">
+            <column name="notes" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="discount_type" type="varchar(255)">
@@ -48,6 +48,9 @@
                 <constraints nullable="true" />
             </column>
             <column name="payment_method" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="payment_status" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="payment_ref" type="varchar(255)">
@@ -109,7 +112,7 @@
             <column name="issue_date" type="date"/>
             <column name="payment_terms" type="numeric"/>
             <column name="discount" type="numeric"/>
-            <column name="notes" type="numeric"/>
+            <column name="notes" type="string"/>
             <column name="discount_type" type="string"/>
             <column name="deposit_amount" type="numeric"/>
             <column name="is_deposit_paied" type="boolean"/>
@@ -117,6 +120,7 @@
             <column name="deposit_pay_ref" type="string"/>
             <column name="is_already_paied" type="boolean"/>
             <column name="payment_method" type="string"/>
+            <column name="payment_status" type="string"/>
             <column name="payment_ref" type="string"/>
             <column name="amount" type="numeric"/>
             <column name="last_amount" type="numeric"/>

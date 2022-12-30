@@ -34,7 +34,8 @@
       "appintments": "Appintments",
       "attachmentNotes": "Attachment Notes",
       "invoice": "Invoice",
-      "purchaseOrder": "Purchase Order"
+      "purchaseOrder": "Purchase Order",
+      "paymentCredit": "Payment Credit"
     }
   }
 }

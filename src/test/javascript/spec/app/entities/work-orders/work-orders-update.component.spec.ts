@@ -29,6 +29,8 @@ import AttachmentNotesService from '@/entities/attachment-notes/attachment-notes
 import InvoiceService from '@/entities/invoice/invoice.service';
 
 import PurchaseOrderService from '@/entities/purchase-order/purchase-order.service';
+
+import PaymentCreditService from '@/entities/payment-credit/payment-credit.service';
 import AlertService from '@/shared/alert/alert.service';
 
 const localVue = createLocalVue();
@@ -105,6 +107,11 @@ describe('Component Tests', () => {
 
           purchaseOrderService: () =>
             sinon.createStubInstance<PurchaseOrderService>(PurchaseOrderService, {
+              retrieve: sinon.stub().resolves({}),
+            } as any),
+
+          paymentCreditService: () =>
+            sinon.createStubInstance<PaymentCreditService>(PaymentCreditService, {
               retrieve: sinon.stub().resolves({}),
             } as any),
         },

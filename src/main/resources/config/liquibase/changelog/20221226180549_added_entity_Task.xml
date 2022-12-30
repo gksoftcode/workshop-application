@@ -10,7 +10,7 @@
         Added the entity Task.
     -->
     <changeSet id="20221226180549-1" author="jhipster">
-        <createTable tableName="task" remarks="Task entity.\n@author The JHipster team.">
+        <createTable tableName="task">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

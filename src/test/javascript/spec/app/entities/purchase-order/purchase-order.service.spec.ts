@@ -8,6 +8,7 @@ import PurchaseOrderService from '@/entities/purchase-order/purchase-order.servi
 import { PurchaseOrder } from '@/shared/model/purchase-order.model';
 import { DiscountType } from '@/shared/model/enumerations/discount-type.model';
 import { PaymentMethod } from '@/shared/model/enumerations/payment-method.model';
+import { PaymentStatus } from '@/shared/model/enumerations/payment-status.model';
 
 const error = {
   response: {
@@ -49,6 +50,7 @@ describe('Service Tests', () => {
         'AAAAAAA',
         false,
         PaymentMethod.Cash,
+        PaymentStatus.Complete,
         'AAAAAAA',
         0,
         0,
@@ -131,6 +133,7 @@ describe('Service Tests', () => {
             depositPayRef: 'BBBBBB',
             isAlreadyPaied: true,
             paymentMethod: 'BBBBBB',
+            paymentStatus: 'BBBBBB',
             paymentRef: 'BBBBBB',
             amount: 1,
             lastAmount: 1,
@@ -174,7 +177,8 @@ describe('Service Tests', () => {
             depositAmount: 1,
             depositPayRef: 'BBBBBB',
             isAlreadyPaied: true,
-            amount: 1,
+            paymentRef: 'BBBBBB',
+            shippingFees: 1,
           },
           new PurchaseOrder()
         );
@@ -220,6 +224,7 @@ describe('Service Tests', () => {
             depositPayRef: 'BBBBBB',
             isAlreadyPaied: true,
             paymentMethod: 'BBBBBB',
+            paymentStatus: 'BBBBBB',
             paymentRef: 'BBBBBB',
             amount: 1,
             lastAmount: 1,

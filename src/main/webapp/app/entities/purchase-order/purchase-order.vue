@@ -80,6 +80,10 @@
               <span v-text="$t('workshopApp.purchaseOrder.paymentMethod')">Payment Method</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'paymentMethod'"></jhi-sort-indicator>
             </th>
+            <th scope="row" v-on:click="changeOrder('paymentStatus')">
+              <span v-text="$t('workshopApp.purchaseOrder.paymentStatus')">Payment Status</span>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'paymentStatus'"></jhi-sort-indicator>
+            </th>
             <th scope="row" v-on:click="changeOrder('paymentRef')">
               <span v-text="$t('workshopApp.purchaseOrder.paymentRef')">Payment Ref</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'paymentRef'"></jhi-sort-indicator>
@@ -126,6 +130,7 @@
             <td>{{ purchaseOrder.depositPayRef }}</td>
             <td>{{ purchaseOrder.isAlreadyPaied }}</td>
             <td v-text="$t('workshopApp.PaymentMethod.' + purchaseOrder.paymentMethod)">{{ purchaseOrder.paymentMethod }}</td>
+            <td v-text="$t('workshopApp.PaymentStatus.' + purchaseOrder.paymentStatus)">{{ purchaseOrder.paymentStatus }}</td>
             <td>{{ purchaseOrder.paymentRef }}</td>
             <td>{{ purchaseOrder.amount }}</td>
             <td>{{ purchaseOrder.lastAmount }}</td>

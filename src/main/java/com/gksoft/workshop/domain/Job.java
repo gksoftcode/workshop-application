@@ -40,7 +40,7 @@ public class Job implements Serializable {
     private Set<Task> tasks = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "jobs", "manager", "department", "workOrders" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "jobs", "manager", "department", "workOrders", "paymentCredit" }, allowSetters = true)
     private Employee employee;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

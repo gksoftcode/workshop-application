@@ -14,6 +14,9 @@ import { IDepartment } from '@/shared/model/department.model';
 import WorkOrdersService from '@/entities/work-orders/work-orders.service';
 import { IWorkOrders } from '@/shared/model/work-orders.model';
 
+import PaymentCreditService from '@/entities/payment-credit/payment-credit.service';
+import { IPaymentCredit } from '@/shared/model/payment-credit.model';
+
 import { IEmployee, Employee } from '@/shared/model/employee.model';
 import EmployeeService from './employee.service';
 
@@ -51,6 +54,10 @@ export default class EmployeeUpdate extends Vue {
   @Inject('workOrdersService') private workOrdersService: () => WorkOrdersService;
 
   public workOrders: IWorkOrders[] = [];
+
+  @Inject('paymentCreditService') private paymentCreditService: () => PaymentCreditService;
+
+  public paymentCredits: IPaymentCredit[] = [];
   public isSaving = false;
   public currentLanguage = '';
 
@@ -175,6 +182,11 @@ export default class EmployeeUpdate extends Vue {
       .retrieve()
       .then(res => {
         this.workOrders = res.data;
+      });
+    this.paymentCreditService()
+      .retrieve()
+      .then(res => {
+        this.paymentCredits = res.data;
       });
   }
 }

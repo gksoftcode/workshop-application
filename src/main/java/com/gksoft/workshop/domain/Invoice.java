@@ -3,6 +3,7 @@ package com.gksoft.workshop.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.gksoft.workshop.domain.enumeration.DiscountType;
 import com.gksoft.workshop.domain.enumeration.PaymentMethod;
+import com.gksoft.workshop.domain.enumeration.PaymentStatus;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
@@ -40,7 +41,7 @@ public class Invoice implements Serializable {
     private Long discount;
 
     @Column(name = "notes")
-    private Long notes;
+    private String notes;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "discount_type")
@@ -65,6 +66,10 @@ public class Invoice implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_method")
     private PaymentMethod paymentMethod;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "payment_status")
+    private PaymentStatus paymentStatus;
 
     @Column(name = "payment_ref")
     private String paymentRef;
@@ -100,13 +105,22 @@ public class Invoice implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "attachments_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "attachmentNotes", "invoices", "purchaseOrders" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "attachmentNotes", "invoices", "purchaseOrders", "paymentCredits" }, allowSetters = true)
     private Set<Attachments> attachments = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties(
         value = {
-            "status", "client", "itemModels", "itemBrand", "assignedStaffs", "appintments", "attachmentNotes", "invoices", "purchaseOrders",
+            "status",
+            "client",
+            "itemModels",
+            "itemBrand",
+            "assignedStaffs",
+            "appintments",
+            "attachmentNotes",
+            "invoices",
+            "purchaseOrders",
+            "paymentCredits",
         },
         allowSetters = true
     )
@@ -179,16 +193,16 @@ public class Invoice implements Serializable {
         this.discount = discount;
     }
 
-    public Long getNotes() {
+    public String getNotes() {
         return this.notes;
     }
 
-    public Invoice notes(Long notes) {
+    public Invoice notes(String notes) {
         this.setNotes(notes);
         return this;
     }
 
-    public void setNotes(Long notes) {
+    public void setNotes(String notes) {
         this.notes = notes;
     }
 
@@ -281,6 +295,19 @@ public class Invoice implements Serializable {
 
     public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public PaymentStatus getPaymentStatus() {
+        return this.paymentStatus;
+    }
+
+    public Invoice paymentStatus(PaymentStatus paymentStatus) {
+        this.setPaymentStatus(paymentStatus);
+        return this;
+    }
+
+    public void setPaymentStatus(PaymentStatus paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 
     public String getPaymentRef() {
@@ -476,7 +503,7 @@ public class Invoice implements Serializable {
             ", issueDate='" + getIssueDate() + "'" +
             ", paymentTerms=" + getPaymentTerms() +
             ", discount=" + getDiscount() +
-            ", notes=" + getNotes() +
+            ", notes='" + getNotes() + "'" +
             ", discountType='" + getDiscountType() + "'" +
             ", depositAmount=" + getDepositAmount() +
             ", isDepositPaied='" + getIsDepositPaied() + "'" +
@@ -484,6 +511,7 @@ public class Invoice implements Serializable {
             ", depositPayRef='" + getDepositPayRef() + "'" +
             ", isAlreadyPaied='" + getIsAlreadyPaied() + "'" +
             ", paymentMethod='" + getPaymentMethod() + "'" +
+            ", paymentStatus='" + getPaymentStatus() + "'" +
             ", paymentRef='" + getPaymentRef() + "'" +
             ", amount=" + getAmount() +
             ", lastAmount=" + getLastAmount() +

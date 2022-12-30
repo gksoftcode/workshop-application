@@ -95,6 +95,9 @@ public class PurchaseOrderService {
                 if (purchaseOrder.getPaymentMethod() != null) {
                     existingPurchaseOrder.setPaymentMethod(purchaseOrder.getPaymentMethod());
                 }
+                if (purchaseOrder.getPaymentStatus() != null) {
+                    existingPurchaseOrder.setPaymentStatus(purchaseOrder.getPaymentStatus());
+                }
                 if (purchaseOrder.getPaymentRef() != null) {
                     existingPurchaseOrder.setPaymentRef(purchaseOrder.getPaymentRef());
                 }

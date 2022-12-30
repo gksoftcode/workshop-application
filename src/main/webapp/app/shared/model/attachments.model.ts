@@ -1,6 +1,7 @@
 import { IAttachmentNotes } from '@/shared/model/attachment-notes.model';
 import { IInvoice } from '@/shared/model/invoice.model';
 import { IPurchaseOrder } from '@/shared/model/purchase-order.model';
+import { IPaymentCredit } from '@/shared/model/payment-credit.model';
 
 export interface IAttachments {
   id?: number;
@@ -10,6 +11,7 @@ export interface IAttachments {
   attachmentNotes?: IAttachmentNotes[] | null;
   invoices?: IInvoice[] | null;
   purchaseOrders?: IPurchaseOrder[] | null;
+  paymentCredits?: IPaymentCredit[] | null;
 }
 
 export class Attachments implements IAttachments {
@@ -20,6 +22,7 @@ export class Attachments implements IAttachments {
     public attach?: string | null,
     public attachmentNotes?: IAttachmentNotes[] | null,
     public invoices?: IInvoice[] | null,
-    public purchaseOrders?: IPurchaseOrder[] | null
+    public purchaseOrders?: IPurchaseOrder[] | null,
+    public paymentCredits?: IPaymentCredit[] | null
   ) {}
 }

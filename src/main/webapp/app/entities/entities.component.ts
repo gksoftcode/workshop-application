@@ -25,6 +25,7 @@ import InvoiceService from './invoice/invoice.service';
 import InvoiceDetailsService from './invoice-details/invoice-details.service';
 import PurchaseOrderService from './purchase-order/purchase-order.service';
 import PurchaseOrderDetailsService from './purchase-order-details/purchase-order-details.service';
+import PaymentCreditService from './payment-credit/payment-credit.service';
 // jhipster-needle-add-entity-service-to-entities-component-import - JHipster will import entities services here
 
 @Component
@@ -54,5 +55,6 @@ export default class Entities extends Vue {
   @Provide('invoiceDetailsService') private invoiceDetailsService = () => new InvoiceDetailsService();
   @Provide('purchaseOrderService') private purchaseOrderService = () => new PurchaseOrderService();
   @Provide('purchaseOrderDetailsService') private purchaseOrderDetailsService = () => new PurchaseOrderDetailsService();
+  @Provide('paymentCreditService') private paymentCreditService = () => new PaymentCreditService();
   // jhipster-needle-add-entity-service-to-entities-component - JHipster will import entities services here
 }

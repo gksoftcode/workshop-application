@@ -3,6 +3,7 @@ package com.gksoft.workshop.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.gksoft.workshop.domain.enumeration.DiscountType;
 import com.gksoft.workshop.domain.enumeration.PaymentMethod;
+import com.gksoft.workshop.domain.enumeration.PaymentStatus;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
@@ -66,6 +67,10 @@ public class PurchaseOrder implements Serializable {
     @Column(name = "payment_method")
     private PaymentMethod paymentMethod;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "payment_status")
+    private PaymentStatus paymentStatus;
+
     @Column(name = "payment_ref")
     private String paymentRef;
 
@@ -100,13 +105,22 @@ public class PurchaseOrder implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "attachments_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "attachmentNotes", "invoices", "purchaseOrders" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "attachmentNotes", "invoices", "purchaseOrders", "paymentCredits" }, allowSetters = true)
     private Set<Attachments> attachments = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties(
         value = {
-            "status", "client", "itemModels", "itemBrand", "assignedStaffs", "appintments", "attachmentNotes", "invoices", "purchaseOrders",
+            "status",
+            "client",
+            "itemModels",
+            "itemBrand",
+            "assignedStaffs",
+            "appintments",
+            "attachmentNotes",
+            "invoices",
+            "purchaseOrders",
+            "paymentCredits",
         },
         allowSetters = true
     )
@@ -281,6 +295,19 @@ public class PurchaseOrder implements Serializable {
 
     public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public PaymentStatus getPaymentStatus() {
+        return this.paymentStatus;
+    }
+
+    public PurchaseOrder paymentStatus(PaymentStatus paymentStatus) {
+        this.setPaymentStatus(paymentStatus);
+        return this;
+    }
+
+    public void setPaymentStatus(PaymentStatus paymentStatus) {
+        this.paymentStatus = paymentStatus;
     }
 
     public String getPaymentRef() {
@@ -484,6 +511,7 @@ public class PurchaseOrder implements Serializable {
             ", depositPayRef='" + getDepositPayRef() + "'" +
             ", isAlreadyPaied='" + getIsAlreadyPaied() + "'" +
             ", paymentMethod='" + getPaymentMethod() + "'" +
+            ", paymentStatus='" + getPaymentStatus() + "'" +
             ", paymentRef='" + getPaymentRef() + "'" +
             ", amount=" + getAmount() +
             ", lastAmount=" + getLastAmount() +

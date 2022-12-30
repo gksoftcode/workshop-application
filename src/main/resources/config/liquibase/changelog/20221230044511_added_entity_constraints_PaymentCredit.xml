@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity PaymentCredit.
+    -->
+    <changeSet id="20221230044511-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="payment_credit_id"
+                                 baseTableName="rel_payment_credit__attachments"
+                                 constraintName="fk_rel_payment_credit__attachments__payment_credit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_credit"/>
+
+        <addForeignKeyConstraint baseColumnNames="attachments_id"
+                                 baseTableName="rel_payment_credit__attachments"
+                                 constraintName="fk_rel_payment_credit__attachments__attachments_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="attachments"/>
+
+        <addForeignKeyConstraint baseColumnNames="work_orders_id"
+                                 baseTableName="payment_credit"
+                                 constraintName="fk_payment_credit__work_orders_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_orders"/>
+    </changeSet>
+</databaseChangeLog>

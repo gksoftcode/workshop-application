@@ -57,6 +57,11 @@
       "fieldValues": "Cash,BankTransfer,Card,Cheque"
     },
     {
+      "fieldName": "paymentStatus",
+      "fieldType": "PaymentStatus",
+      "fieldValues": "Complete,Incomplete,Pending,Failed"
+    },
+    {
       "fieldName": "paymentRef",
       "fieldType": "String"
     },

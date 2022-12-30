@@ -43,7 +43,8 @@
       "Invoice",
       "InvoiceDetails",
       "PurchaseOrder",
-      "PurchaseOrderDetails"
+      "PurchaseOrderDetails",
+      "PaymentCredit"
     ],
     "entitySuffix": "",
     "gitCompany": "",
@@ -51,7 +52,7 @@
     "jhipsterVersion": "7.9.3",
     "jwtSecretKey": "ZjNlMGFmZDlmNzY1OWRkMzIzN2I2YTNhM2JjMjUzYTI0NDYwZGE4YmJkYTFhMTgzZTRmNjhhN2RhMTA4MTJlZjE3YWJiNmFmYjAwMzkzYTQwMDViMDEyY2VhM2RjYjk0Y2EyZmFhMGI2NjY0MDM2NjAzMTU0NTYwOTFmNWFlYzM=",
     "languages": ["en", "ar-ly"],
-    "lastLiquibaseTimestamp": 1672077969000,
+    "lastLiquibaseTimestamp": 1672375511000,
     "messageBroker": false,
     "nativeLanguage": "en",
     "otherModules": [],
